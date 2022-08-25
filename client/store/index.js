@@ -7,13 +7,25 @@ import singleExerciseReducer from "./singleExercise";
 import workoutReducer from "./workout";
 import leadersReducer from "./topUsers";
 import exercisesReducer from "./exercises";
+import usersReducer from "./allUsers";
+import singleWorkoutReducer from "./singleWorkout";
+import singleUserReducer from "./singleUser";
+import previousReducer from "./previous";
 
 const reducer = combineReducers({
   auth: auth,
-  singleExercise: singleExerciseReducer,
+
   workout: workoutReducer,
+  singleWorkout: singleWorkoutReducer,
+  previous: previousReducer,
+
+  allExercises: exercisesReducer,
+  singleExercise: singleExerciseReducer,
+
   topUsers: leadersReducer,
-  AllExercises: exercisesReducer,
+  allUsers: usersReducer,
+  singleUser: singleUserReducer,
+
 });
 
 const middleware = composeWithDevTools(
