@@ -49,7 +49,11 @@ router.put('/finish', requireToken, async (req, res, next) => {
 
     current.update({
       status: 'closed'
-    })
+    });
+  
+    const currentWeightLifted = current.workoutTotalWeight;
+    const user = await User.findByPk(req.user.dataValues.id);
+    await user.update({totalWeight: totalWeight + currentWeightLifted});
     
     res.send(current)
   } catch (error) {
