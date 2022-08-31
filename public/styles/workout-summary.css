@@ -1,0 +1,18 @@
+.workout-summary-container {
+  display: flex;
+  justify-content: column;
+}
+
+.workout-summary-headings {
+  display: flex;
+  justify-content: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workout-summary-heading {
+  margin: 0;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #5B5757;
+}

@@ -86,7 +86,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
     await user.update({
       totalWeight: (user.totalWeight += totalWeightFromWorkout),
     });
-    
+
     await current.update({
       status: "closed",
       workoutTotalWeight: totalWeightFromWorkout,
@@ -112,7 +112,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
 
     const currentWeightLifted = current.workoutTotalWeight;
     console.log("current weight lifted", currentWeightLifted);
-    const user = await User.findByPk(req.user.dataValues.id);
     const totalWeight = user.totalWeight;
     await user.update({ totalWeight: totalWeight + currentWeightLifted });
     const newTotal = user.totalWeight;

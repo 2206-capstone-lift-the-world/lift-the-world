@@ -5,7 +5,7 @@ import { finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
-function CurrentWorkout() {
+const CurrentWorkout = () => {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
 
@@ -22,6 +22,7 @@ function CurrentWorkout() {
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
+  console.log("what shows here", allExercises);
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
@@ -78,7 +79,10 @@ function CurrentWorkout() {
       </div>
       {allExercises.status === "active" ? (
         <Link to="/recap">
-          <button className="cw-finish-btn" onClick={() => dispatch(finishWorkout())}>
+          <button
+            className="cw-finish-btn"
+            onClick={() => dispatch(finishWorkout())}
+          >
             Finish Workout
           </button>
         </Link>
@@ -87,7 +91,7 @@ function CurrentWorkout() {
       )}
     </div>
   );
-}
+};
 
 const mapDispatchToProps = (dispatch) => ({
   addSet: (setData) => dispatch(addSet(setData)),
