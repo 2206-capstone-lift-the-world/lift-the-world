@@ -1,129 +1,111 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchPreviousWorkout } from '../../store/previous'
-import { fetchWorkout } from "../../store/workout";
-import { finishWorkout } from "../../store/workout";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addSet,
+  fetchWorkoutlist,
+  deleteFromWorkout,
+} from "../../store/workoutlist";
+import { fetchWorkout, finishWorkout } from "../../store/workout";
+import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
-export default function CurrentWorkout() {
-  const workout = useSelector((state) => state.workout);
-  // const previous = useSelector((state) => state.previous)
+const CurrentWorkout = () => {
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchPreviousWorkout())
-  // }, [dispatch])
+  const workoutlist = useSelector((state) => state.workoutlist);
+  const workout = useSelector((state) => state.workout);
 
   useEffect(() => {
-    dispatch(fetchWorkout())
-  }, [dispatch])
+    dispatch(fetchWorkout());
+    dispatch(fetchWorkoutlist());
+  }, [dispatch]);
 
-  let [eset, setEset] = useState({
-    reps: '',
-    weight: ''
-  })
-
-  const handleChange = (event) => {
-    event.preventDefault();
-    setEset({
-      ...eset,
-      [event.target.name]: event.target.value
-    })
+  if (
+    !workoutlist.allExercises.exercises ||
+    workoutlist.allExercises.exercises.length === 0
+  ) {
+    return <div>Loading... please add a workout!</div>;
   }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   dispatch(createSet(set))
-  //   setEset({
-  //     reps:'',
-  //     weight:''
-  //   })
-  // }
+  const { allExercises } = workoutlist || [];
+  const { exercises, id: workoutId } = allExercises;
 
-  const workouts = workout.exercises || []
-  // const prev = previous.exercises || []
-  // console.log(prev)
   return (
     <div className="cw-container">
-      {/* <h2 className="cw-workout-name">{workout.name}</h2> */}
       <div className="cw-exercise-container">
-        {workouts.map((exercise) => {
+        <h1>{workout.name}</h1>
+        {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id}>
-            <h2 className="cw-exercise-name">{exercise.name}</h2>
-            <div className="cw-exercise">
-              <div className="cw-headings">
-                <p className="cw-heading">Set</p>
-                <p className="cw-heading cw-previous-heading">Previous</p>
-                <p className="cw-heading">Reps</p>
-                <p className="cw-heading cw-weight-heading">Weight</p>
-                <p className="cw-heading cw-heading-check">️✔️️</p>
-              </div>
-              {exercise.workoutlist.sets.map((set, index) => {
-                return (
-                  <div className="cw-info-container" key={index}>
-                    <form>
-                      <div className="cw-set-info">
-                        <input
-                          className="cw-sr-input cw-set"
-                          type="number"
-                          name="set"
-                          value={index + 1}
-                          disabled
-                        />                        
-                        
-                        <p className="cw-previous">{set.reps} x {set.weight}</p>
-                        
-                        <input
-                          className="cw-sr-input cw-rep-input"
-                          type="number"
-                          name="reps"
-                          onChange={handleChange}
-                        /> 
+              <Link
+                to={`/exercise/${exercise.id}`}
+                className="cw-exercise-name"
+              >
+                {exercise.name}
+              </Link>
+              <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
+                Remove from exercise
+              </button>
+              <div className="cw-exercise">
+                <div className="cw-headings">
+                  <p className="cw-heading">Set</p>
+                  <p className="cw-heading cw-previous-heading">Previous</p>
+                  <p className="cw-heading">Reps</p>
+                  <p className="cw-heading cw-weight-heading">Weight</p>
+                  <p className="cw-heading cw-heading-check">️✔️️</p>
+                </div>
+                {exercise.workoutlist.sets.map((set, index) => {
+                  return (
+                    <CurrentWorkoutSet
+                      key={index}
+                      workoutId={workoutId}
+                      exerciseId={exercise.id}
+                      setId={index + 1}
+                      weight={set.weight}
+                      reps={set.reps}
+                    />
+                  );
+                })}
 
-                        <input
-                          className="cw-weight-input"
-                          type="number"
-                          name="weight"
-                          // onChange={handleChange}
-                        />
-
-                        <input
-                          className="cw-check-input"
-                          type="checkbox"
-                          name="check"
-                        />
-
-                      </div>
-                    </form>
-                  </div>
-                )
-              })}
-              
-              <div className="cw-btn-container">
-                <button className="cw-add-btn">
-                  + Add Set
-                </button>
+                <div className="cw-btn-container">
+                  <button
+                    className="cw-add-btn"
+                    onClick={() => {
+                      dispatch(
+                        addSet({
+                          exerciseId: exercise.id,
+                          reps: "",
+                          setId:
+                            exercise.workoutlist.sets[
+                              exercise.workoutlist.sets.length - 1
+                            ].setId + 1,
+                          weight: "",
+                          workoutId: workoutId,
+                        })
+                      );
+                    }}
+                  >
+                    + Add Set
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          )
+          );
         })}
       </div>
-        {/* this should lead to recap page and make workout closed */}
-      {workout.status === 'active' ? (
+      {allExercises.status === "active" ? (
         <Link to="/recap">
-          <button className="cw-finish-btn" onClick={() => dispatch(finishWorkout())}>
+          <button
+            className="cw-finish-btn"
+            onClick={() => dispatch(finishWorkout())}
+          >
             Finish Workout
           </button>
         </Link>
-
       ) : (
-        <Link to="/exercises">
-          <button>Start a new workout!</button>
-        </Link>
-      ) }
-
+        <button>Start a new workout</button>
+      )}
     </div>
-  ) 
-}
+  );
+};
+
+export default CurrentWorkout;

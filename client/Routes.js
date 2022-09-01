@@ -15,6 +15,7 @@ import MuscleGroups from "./components/MuscleGroups/MuscleGroups";
 import ExerciseGroup from "./components/MuscleGroups/ExerciseGroup";
 import SinglePreset from "./components/Workouts/SinglePreset";
 import AllExercises from "./components/Exercise/AllExercises";
+import ChooseSprites from "./components/Sprites";
 
 class Routes extends Component {
   componentDidMount() {
@@ -35,14 +36,27 @@ class Routes extends Component {
                 <Route path="/recap" component={Recap} />
                 <Route path="/disclaimer" component={Disclaimer} />
                 <Route exact path="/musclegroups" component={MuscleGroups} />
-                <Route exact path="/musclegroups/:category" component={ExerciseGroup} />
+                <Route
+                  exact
+                  path="/musclegroups/:category"
+                  component={ExerciseGroup}
+                />
                 <Route exact path="/workout" component={CurrentWorkout} />
-                <Route exact path="/workout/preset" component={PresetWorkouts} />
-                <Route exact path="/workout/preset/:id" component={SinglePreset} />
-                <Route exact path= "/exercises" component={AllExercises} />
+                <Route
+                  exact
+                  path="/workout/preset"
+                  component={PresetWorkouts}
+                />
+                <Route
+                  exact
+                  path="/workout/preset/:id"
+                  component={SinglePreset}
+                />
+                <Route exact path="/exercises" component={AllExercises} />
                 <Route exact path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />
+                <Route path='/sprites' component={ChooseSprites} />
               </Switch>
             </div>
           </>

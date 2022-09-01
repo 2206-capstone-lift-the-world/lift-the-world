@@ -4,12 +4,12 @@ import { fetchSingleUser } from "../store/singleUser";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 
-const UserProfile = ({ handleClick, username }) => {
+const UserProfile = () => {
   const character = [
-    "/sprites/cat/cat-walk.gif",
-    "/sprites/cat/cat-idle.gif",
-    "/sprites/cat/cat-jump.gif",
-    "/sprites/cat/cat-run.gif",
+    "/sprites/zombie/zombie-idle.gif",
+    "/sprites/zombie/zombie-jump.gif",
+    "/sprites/zombie/zombie-run.gif",
+    "/sprites/zombie/zombie-dead.gif",
   ];
 
   const [frame, setFrame] = useState(0);
@@ -18,29 +18,22 @@ const UserProfile = ({ handleClick, username }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.singleUser);
+  const username = useSelector((state) => state.auth.username);
 
   useEffect(() => {
     dispatch(fetchSingleUser());
   }, [dispatch]);
 
-  // automatically animate character
-  // useEffect(() => {
-  //   const handleAnimation = () => {
-  //     setFrame((frame) => (frame + 1) % character.length);
-  //   };
-  //   const interval = setInterval(handleAnimation, 5000); // 300 ms is pretty short. Did you mean 3000?
-  //   return () => clearInterval(interval);
-  // }, []);
-
   // change character animation on click
   const counterFunc = () => {
-    console.log(counter);
     setFrame(counter);
     setCounter(counter + 1);
     if (counter >= 3) {
       setCounter(0);
     }
   };
+
+  const totalWeight = user.totalWeight || [];
 
   return (
     <>
@@ -56,10 +49,12 @@ const UserProfile = ({ handleClick, username }) => {
         />
         <p className="character-margin">Progress bar goes here</p>
         <p className="character-margin">You've lifted a total of:</p>
-        <p className="character-margin">{user.totalWeight} lbs</p>
+        <p className="character-margin">
+          {totalWeight.toLocaleString("en-US") || 0} lbs
+        </p>
         <button className="progress-btn">See my progress graph</button>
         <Link to="/login">
-          <button className="logout-btn" onClick={handleClick}>
+          <button className="logout-btn" onClick={() => dispatch(logout())}>
             Logout
           </button>
         </Link>
@@ -68,14 +63,4 @@ const UserProfile = ({ handleClick, username }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  username: state.auth.username,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  handleClick() {
-    dispatch(logout());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default UserProfile
