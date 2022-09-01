@@ -1,6 +1,5 @@
-import React from "react";
-import WeightComparison from "./WeightComparison";
-import WorkoutSummary from "./WorkoutSummary";
+import React from 'react';
+import WeightComparison from './WeightComparison';
 
 const Recap = () => {
   return (
@@ -8,9 +7,7 @@ const Recap = () => {
       <div className="recap-congrats">
         <h4>Great job with your workout!</h4>
       </div>
-      <div className="recap-weights">
-        <WorkoutSummary />
-      </div>
+      <div className="recap-weights">Put Workout Summary Component Here</div>
       <WeightComparison />
     </div>
   );

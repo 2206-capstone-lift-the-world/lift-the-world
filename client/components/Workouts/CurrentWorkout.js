@@ -1,21 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addSet,
-  fetchWorkoutlist,
-  deleteFromWorkout,
-} from "../../store/workoutlist";
+import { useDispatch, useSelector, connect } from "react-redux";
+import { addSet, confirmSet, fetchWorkoutlist, deleteFromWorkout } from "../../store/workoutlist";
 import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
-const CurrentWorkout = () => {
+function CurrentWorkout() {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
-  const workout = useSelector((state) => state.workout);
+  const workout = useSelector((state) => state.workout)
 
   useEffect(() => {
-    dispatch(fetchWorkout());
+    dispatch(fetchWorkout())
     dispatch(fetchWorkoutlist());
   }, [dispatch]);
 
@@ -29,6 +25,7 @@ const CurrentWorkout = () => {
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
 
+  console.log('WORKOUT', workout)
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
@@ -36,15 +33,10 @@ const CurrentWorkout = () => {
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id}>
-              <Link
-                to={`/exercise/${exercise.id}`}
-                className="cw-exercise-name"
-              >
+              <Link to={`/exercise/${exercise.id}`} className="cw-exercise-name">
                 {exercise.name}
               </Link>
-              <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
-                Remove from exercise
-              </button>
+              <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>Remove from exercise</button>
               <div className="cw-exercise">
                 <div className="cw-headings">
                   <p className="cw-heading">Set</p>
@@ -94,10 +86,7 @@ const CurrentWorkout = () => {
       </div>
       {allExercises.status === "active" ? (
         <Link to="/recap">
-          <button
-            className="cw-finish-btn"
-            onClick={() => dispatch(finishWorkout())}
-          >
+          <button className="cw-finish-btn" onClick={() => dispatch(finishWorkout())}>
             Finish Workout
           </button>
         </Link>
@@ -106,6 +95,6 @@ const CurrentWorkout = () => {
       )}
     </div>
   );
-};
+}
 
-export default CurrentWorkout;
+export default CurrentWorkout
