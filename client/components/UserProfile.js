@@ -3,6 +3,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "../store/singleUser";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
+import Notification from "./Notification";
 
 const UserProfile = () => {
   const character = [
@@ -59,8 +60,9 @@ const UserProfile = () => {
           </button>
         </Link>
       </div>
+      <Notification />
     </>
   );
 };
 
-export default UserProfile
+export default UserProfile;
