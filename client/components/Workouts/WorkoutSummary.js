@@ -49,19 +49,6 @@ const WorkoutSummary = () => {
                 return (acc += parseInt(curr.reps * curr.weight));
               }, 0)}
             </p>
-            {/* {exercise.workoutlist.sets.map((set, index) => {
-              return (
-                <>
-                  {console.log("each set in workout summary", set)}
-                  <p key={index} className="set-p-info">
-                    {(set.setId += 1)}
-                  </p>
-                  <p className="set-p-info">{set.reps}</p>
-                  <p className="set-p-info">{set.weight}</p>
-                  <p className="set-p-info">{set.reps * set.weight}</p>
-                </>
-              );
-            })} */}
           </div>
         );
       })}
