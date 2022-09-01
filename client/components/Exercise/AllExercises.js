@@ -10,17 +10,17 @@ import {
   NotificationManager,
 } from "react-notifications";
 
-const notification = () => {
-  createNotification = (type) => {
-    return () => {
-      switch (type) {
-        case "info":
-          NotificationManager.info("Added exercise!");
-          break;
-      }
-    };
-  };
-};
+// const notification = () => {
+//   createNotification = (type) => {
+//     return () => {
+//       switch (type) {
+//         case "info":
+//           NotificationManager.info("Added exercise!");
+//           break;
+//       }
+//     };
+//   };
+// };
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -48,7 +48,7 @@ const AllExercises = () => {
                   <button
                     onClick={() => {
                       dispatch(addToWorkout(exercise));
-                      notification("info");
+                      // notification("info");
                     }}
                     className="all-exercises-add-btn"
                   >
