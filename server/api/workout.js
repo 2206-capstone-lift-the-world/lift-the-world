@@ -111,7 +111,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
     const knight = await Sprite.findOne({ where: { name: "knight" } });
 
     const currentWeightLifted = current.workoutTotalWeight;
-    console.log("current weight lifted", currentWeightLifted);
+
     const totalWeight = user.totalWeight;
     await user.update({ totalWeight: totalWeight + currentWeightLifted });
     const newTotal = user.totalWeight;
@@ -187,46 +187,59 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
         userId: req.user.dataValues.id,
         status: "active",
       },
-      include: [Exercise]
-    })
+      include: [Exercise],
+    });
 
     if (!workout) {
       let preset = await Workout.findOne({
         where: {
-          id: req.params.id
+          id: req.params.id,
         },
-        raw: true
-      })
+        raw: true,
+      });
 
-      preset.status = "active"
-      preset.userId = req.user.dataValues.id
+      preset.status = "active";
+      preset.userId = req.user.dataValues.id;
       delete preset.id;
-      let newWorkout = await Workout.create(preset)
+      let newWorkout = await Workout.create(preset);
 
       const workoutLists = await WorkoutList.findAll({
         where: {
           workoutId: req.params.id,
-        }
-      })
-      
-      const exercises = workoutLists.map(workoutlist => {
-        return workoutlist.dataValues.exerciseId
-      })
+        },
+      });
+
+      const exercises = workoutLists.map((workoutlist) => {
+        return workoutlist.dataValues.exerciseId;
+      });
 
       for (let i = 0; i < exercises.length; i++) {
         const exercise = await Exercise.findByPk(exercises[i]);
-        await newWorkout.addExercise(exercise)
+        await newWorkout.addExercise(exercise);
       }
-      
-      res.send(newWorkout)
+
+      const newWorkoutExercise = await WorkoutList.findAll({
+        where: {
+          workoutId: newWorkout.id,
+        },
+      });
+
+      newWorkoutExercise.map((exercise) => {
+        exercise.update({
+          userId: req.user.dataValues.id,
+          sets: [{ reps: "", weight: "", setId: 0 }],
+        });
+      });
+
+      res.send(newWorkout);
     } else {
-      console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
-      res.send(workout)
+      console.log("FINISH THE WORKOUT THAT YOU STARTED!!!");
+      res.send(workout);
     }
   } catch (error) {
-    next (error)
+    next(error);
   }
-})
+});
 
 router.get("/preset", async (req, res, next) => {
   try {
@@ -255,6 +268,39 @@ router.get("/preset/:id", async (req, res, next) => {
     } else {
       res.sendStatus(404);
     }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete("/:exerciseId", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+      include: [Exercise],
+    });
+
+    if (workout) {
+      await WorkoutList.destroy({
+        where: {
+          workoutId: workout.id,
+          exerciseId: req.params.exerciseId,
+        },
+      });
+    }
+
+    res.send(
+      await Workout.findOne({
+        where: {
+          userId: req.user.dataValues.id,
+          status: "active",
+        },
+        include: [Exercise],
+      })
+    );
   } catch (error) {
     next(error);
   }
