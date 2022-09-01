@@ -20,9 +20,11 @@ const WeightComparison = () => {
         return total;
       });
     }) || [];
+
   const totalWeight = totalWeightArr.reduce((acc, curr) => {
     return (acc += parseInt(curr));
   }, 0);
+
   const comparison = weightFunction(totalWeight);
   return (
     <div>

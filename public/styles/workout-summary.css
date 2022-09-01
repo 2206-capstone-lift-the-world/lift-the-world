@@ -7,6 +7,8 @@
 .workout-summary-table {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .workout-summary-heading {
@@ -21,4 +23,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.set-p-info {
+  font-size: 0.8rem;
+  color: #5B5757;
 }

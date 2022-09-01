@@ -18,7 +18,6 @@ const WorkoutSummary = () => {
   }
 
   const { allExercises } = workoutlist || [];
-  console.log("workoutlist info", allExercises);
   return (
     <div className="workout-summary-container">
       <div className="workout-summary-table">
@@ -31,18 +30,16 @@ const WorkoutSummary = () => {
       {allExercises.exercises.map((exercise) => {
         return (
           <div className="set-info" key={exercise.id}>
-            {console.log("what is going on", allExercises.exercises)}
-            <p>{exercise.name}</p>
+            <p className="set-p-info">{exercise.name}</p>
             {exercise.workoutlist.sets.map((set, index) => {
-              console.log("set inside map", set);
-              console.log("set id", (set.setId += 1));
               return (
                 <>
-                  {console.log("set info", set.reps)}
-                  <p key={index}>{(set.setId += 1)}</p>
-                  <p>{set.reps}</p>
-                  <p>{set.weight}</p>
-                  <p>{set.reps * set.weight}</p>
+                  <p key={index} className="set-p-info">
+                    {(set.setId += 1)}
+                  </p>
+                  <p className="set-p-info">{set.reps}</p>
+                  <p className="set-p-info">{set.weight}</p>
+                  <p className="set-p-info">{set.reps * set.weight}</p>
                 </>
               );
             })}
