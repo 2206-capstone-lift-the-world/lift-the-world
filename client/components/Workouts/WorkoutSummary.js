@@ -19,7 +19,7 @@ const WorkoutSummary = () => {
 
   const { allExercises } = workoutlist || [];
   const eachSet = allExercises.exercises;
-  console.log("exercises each set", eachSet);
+
   return (
     <div className="workout-summary-container">
       <div className="workout-summary-table">
@@ -33,10 +33,7 @@ const WorkoutSummary = () => {
         return (
           <div className="set-info" key={exercise.id}>
             <p className="set-p-info">{exercise.name}</p>
-            <p className="set-p-info">
-              {exercise.workoutlist.sets.length}
-              {console.log("each exercise", exercise)}
-            </p>
+            <p className="set-p-info">{exercise.workoutlist.sets.length}</p>
             <p className="set-p-info">
               {exercise.workoutlist.sets.reduce((acc, curr) => {
                 return (acc += parseInt(curr.reps));
