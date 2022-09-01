@@ -18,6 +18,8 @@ const WorkoutSummary = () => {
   }
 
   const { allExercises } = workoutlist || [];
+  const eachSet = allExercises.exercises;
+  console.log("exercises each set", eachSet);
   return (
     <div className="workout-summary-container">
       <div className="workout-summary-table">
@@ -31,9 +33,29 @@ const WorkoutSummary = () => {
         return (
           <div className="set-info" key={exercise.id}>
             <p className="set-p-info">{exercise.name}</p>
-            {exercise.workoutlist.sets.map((set, index) => {
+            <p className="set-p-info">
+              {exercise.workoutlist.sets.length}
+              {console.log("each exercise", exercise)}
+            </p>
+            <p className="set-p-info">
+              {exercise.workoutlist.sets.reduce((acc, curr) => {
+                return (acc += parseInt(curr.reps));
+              }, 0)}
+            </p>
+            <p className="set-p-info">
+              {exercise.workoutlist.sets.reduce((acc, curr) => {
+                return (acc += parseInt(curr.weight));
+              }, 0)}
+            </p>
+            <p className="set-p-info">
+              {exercise.workoutlist.sets.reduce((acc, curr) => {
+                return (acc += parseInt(curr.reps * curr.weight));
+              }, 0)}
+            </p>
+            {/* {exercise.workoutlist.sets.map((set, index) => {
               return (
                 <>
+                  {console.log("each set in workout summary", set)}
                   <p key={index} className="set-p-info">
                     {(set.setId += 1)}
                   </p>
@@ -42,7 +64,7 @@ const WorkoutSummary = () => {
                   <p className="set-p-info">{set.reps * set.weight}</p>
                 </>
               );
-            })}
+            })} */}
           </div>
         );
       })}
