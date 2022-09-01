@@ -110,43 +110,61 @@ router.put("/finish", requireToken, async (req, res, next) => {
     const santa = await Sprite.findOne({ where: { name: "santa" } });
     const knight = await Sprite.findOne({ where: { name: "knight" } });
 
-    const currentWeightLifted = current.workoutTotalWeight;
-
-    const totalWeight = user.totalWeight;
-    await user.update({ totalWeight: totalWeight + currentWeightLifted });
     const newTotal = user.totalWeight;
     if (newTotal >= 1000) {
       await user.addSprite(cuteGirl);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 2000) {
       await user.addSprite(adventureBoy);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 4000) {
       await user.addSprite(zombie);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 8000) {
       await user.addSprite(ninjaGirl);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 16000) {
       await user.addSprite(jackOLantern);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 32000) {
       await user.addSprite(ninjaBoy);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 64000) {
       await user.addSprite(adventureGirl);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 128000) {
       await user.addSprite(dino);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 256000) {
       await user.addSprite(robot);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 512000) {
       await user.addSprite(santa);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     if (newTotal >= 1024000) {
       await user.addSprite(knight);
+      let newLevel = user.level++;
+      await user.update({ level: newLevel });
     }
     res.send(current);
   } catch (error) {
