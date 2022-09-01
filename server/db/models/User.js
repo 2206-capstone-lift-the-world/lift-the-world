@@ -48,6 +48,7 @@ const User = db.define("user", {
   },
   selectedSprite: {
     type: Sequelize.STRING,
+    defaultValue: "cat",
   },
 });
 

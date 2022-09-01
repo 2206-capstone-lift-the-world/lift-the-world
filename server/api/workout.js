@@ -111,60 +111,85 @@ router.put("/finish", requireToken, async (req, res, next) => {
     const knight = await Sprite.findOne({ where: { name: "knight" } });
 
     const newTotal = user.totalWeight;
+    let newLevel = user.level;
+
     if (newTotal >= 1000) {
       await user.addSprite(cuteGirl);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 2500 && newTotal / 1000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 2000) {
+    if (newTotal >= 2500) {
       await user.addSprite(adventureBoy);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 5000 && newTotal / 2500 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 4000) {
+
+    if (newTotal >= 5000) {
       await user.addSprite(zombie);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 10000 && newTotal / 5000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 8000) {
+    if (newTotal >= 10000) {
       await user.addSprite(ninjaGirl);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 20000 && newTotal / 10000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 16000) {
+    if (newTotal >= 20000) {
       await user.addSprite(jackOLantern);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 40000 && newTotal / 20000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 32000) {
+    if (newTotal >= 40000) {
       await user.addSprite(ninjaBoy);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 75000 && newTotal / 40000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 64000) {
+    if (newTotal >= 75000) {
       await user.addSprite(adventureGirl);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 125000 && newTotal / 75000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 128000) {
+    if (newTotal >= 125000) {
       await user.addSprite(dino);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 250000 && newTotal / 125000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 256000) {
+    if (newTotal >= 250000) {
       await user.addSprite(robot);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 500000 && newTotal / 250000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 512000) {
+    if (newTotal >= 500000) {
       await user.addSprite(santa);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 1000000 && newTotal / 500000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
-    if (newTotal >= 1024000) {
+    if (newTotal >= 1000000) {
       await user.addSprite(knight);
-      let newLevel = user.level++;
-      await user.update({ level: newLevel });
+      if (newTotal < 1500000 && newTotal / 1000000 === 1) {
+        newLevel += 1;
+        await user.update({ level: newLevel });
+      }
     }
     res.send(current);
   } catch (error) {
@@ -312,18 +337,18 @@ router.delete("/:exerciseId", requireToken, async (req, res, next) => {
 
     const workoutlists = await WorkoutList.findAll({
       where: {
-        workoutId: workout.id
-      }
-    })
+        workoutId: workout.id,
+      },
+    });
 
     if (workoutlists.length === 0) {
       await Workout.destroy({
         where: {
-          id: workout.id
-        }
-      })
+          id: workout.id,
+        },
+      });
     }
-    
+
     res.send(
       await Workout.findOne({
         where: {
