@@ -21,6 +21,7 @@ const WeightComparison = () => {
     })[0] || [];
 
   const comparison = weightFunction(totalWeight);
+  console.log(comparison);
   return (
     <div>
       <div className="recap-total-weight">

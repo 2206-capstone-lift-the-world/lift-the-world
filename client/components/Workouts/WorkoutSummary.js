@@ -21,32 +21,34 @@ const WorkoutSummary = () => {
   console.log("workoutlist info", allExercises);
   return (
     <div className="workout-summary-container">
-      <table className="workout-summary-table">
-        <thead>
-          <tr>
-            <th className="workout-summary-heading">Name</th>
-            <th className="workout-summary-heading">Sets</th>
-            <th className="workout-summary-heading">Reps</th>
-            <th className="workout-summary-heading">Weight</th>
-            <th className="workout-summary-heading">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allExercises.exercises.map((exercise) => {
-            return (
-              <>
-                <tr key={exercise.id}>{exercise.name}</tr>
-                <tr>
-                  {exercise.workoutlist.sets.map((set, index) => {
-                    console.log("set inside map", set);
-                    <tr key={index}>{parseInt(set.setId) + 1}</tr>;
-                  })}
-                </tr>
-              </>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="workout-summary-table">
+        <p className="workout-summary-heading">Name</p>
+        <p className="workout-summary-heading">Sets</p>
+        <p className="workout-summary-heading">Reps</p>
+        <p className="workout-summary-heading">Weight</p>
+        <p className="workout-summary-heading">Total</p>
+      </div>
+      {allExercises.exercises.map((exercise) => {
+        return (
+          <div className="set-info" key={exercise.id}>
+            {console.log("what is going on", allExercises.exercises)}
+            <p>{exercise.name}</p>
+            {exercise.workoutlist.sets.map((set, index) => {
+              console.log("set inside map", set);
+              console.log("set id", (set.setId += 1));
+              return (
+                <>
+                  {console.log("set info", set.reps)}
+                  <p key={index}>{(set.setId += 1)}</p>
+                  <p>{set.reps}</p>
+                  <p>{set.weight}</p>
+                  <p>{set.reps * set.weight}</p>
+                </>
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };
