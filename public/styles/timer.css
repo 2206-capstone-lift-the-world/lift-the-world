@@ -1,21 +1,38 @@
 .timer-play-btn, .timer-pause-btn {
   background: transparent;
-  color: black;
   border: 0;
-  display: inline-block;
   width: 100px;;
+}
+
+.timer-play-btn {
+  color: #D2EBC0
+}
+
+.timer-pause-btn {
+  color: #FFA2AD
 }
 
 .timer-slider {
   height: 40px;
-  border: 2px solid black;
+  border: 2px dotted #CAB7A6;
   border-radius: 20px;
 }
 
 .thumb {
-  background: black;
+  background: #a2d0e9;
   cursor: pointer;
   width: 40px;
   height: 40px;
   border-radius: 20px;
+}
+
+.timer-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.timer-label {
+  margin: .5rem .25rem;
+  color: #908680;
 }

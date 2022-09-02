@@ -6,7 +6,7 @@ export default function Settings() {
   const settingsInfo = useContext(SettingsContext)
   return (
     <div>
-      <label>Timer: {settingsInfo.timer}:00</label>
+      <label className="timer-label">Timer: {settingsInfo.timer}:00</label>
       <ReactSlider
         className="timer-slider"
         thumbClassName={'thumb'}

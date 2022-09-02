@@ -61,7 +61,7 @@ export default function Timer() {
           tailColor: "rgba(225, 225, 225, .2)",
         })}
       />
-      <div>
+      <div className="timer-btn-container">
         {isPaused ? 
           <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false }}/> 
         : 
