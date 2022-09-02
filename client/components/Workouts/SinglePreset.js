@@ -21,26 +21,29 @@ const SinglePreset = () => {
         <Loading />
       </div>
     );
+  } else {
+    return (
+      <div>
+        {preset && preset.id ? (
+          <div>
+            <p>{preset.name}</p>
+            <ul>
+              {preset.exercises.map((exercise) => {
+                return <li key={exercise.id}>{exercise.name}</li>;
+              })}
+            </ul>
+            <button onClick={() => dispatch(doPresetWorkout(id))}>
+              Let's Go!
+            </button>
+          </div>
+        ) : (
+          <div>
+            <Loading />
+          </div>
+        )}
+      </div>
+    );
   }
-  return (
-    <div>
-      {preset && preset.id ? (
-        <div>
-          <p>{preset.name}</p>
-          <ul>
-            {preset.exercises.map((exercise) => {
-              return <li key={exercise.id}>{exercise.name}</li>;
-            })}
-          </ul>
-          <button onClick={() => dispatch(doPresetWorkout(id))}>
-            Let's Go!
-          </button>
-        </div>
-      ) : (
-        <p> No preset workout here!</p>
-      )}
-    </div>
-  );
 };
 
 export default SinglePreset;
