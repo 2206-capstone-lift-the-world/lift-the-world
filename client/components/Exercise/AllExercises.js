@@ -4,7 +4,7 @@ import { getExercisesThunk } from "../../store/exercises";
 import { addToWorkout } from "../../store/workout";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import Loading from "../Loading";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -23,7 +23,9 @@ const AllExercises = () => {
             return (
               <div className="exercise-container" key={exercise.id}>
                 <div className="exercise-img-container">
-                  <img src={exercise.image} className="exercise-img" />
+                  <Link to={`/exercise/${exercise.id}`}>
+                    <img src={exercise.image} className="exercise-img" />
+                  </Link>
                 </div>
                 <div className="exercise-info-container">
                   <Link
@@ -43,10 +45,7 @@ const AllExercises = () => {
                 <div className="exercise-btn-container">
                   <button
                     onClick={() => {
-<<<<<<< Updated upstream
-=======
                       toast("Added to workout");
->>>>>>> Stashed changes
                       dispatch(addToWorkout(exercise));
                     }}
                     className="exercise-add-btn"
@@ -58,27 +57,7 @@ const AllExercises = () => {
                   </button>
                 </div>
               </div>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
             );
-=======
-              <div className="exercise-btn-container">
-                <button
-                  onClick={() => {
-                    toast('Added to workout'); 
-                    dispatch(addToWorkout(exercise));
-                  }}
-                  className="exercise-add-btn"
-                >
-                  <img src="/images/plus-solid.svg" className="exercise-add-btn-img" />
-                </button>
-              </div>
-            </div>
-            )
->>>>>>> fc6e675eb09ef44a4a3c81e141d75ee23edbaa72
-=======
-            );
->>>>>>> Stashed changes
           })}
         </div>
       ) : (
