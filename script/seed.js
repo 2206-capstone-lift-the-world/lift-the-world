@@ -36,7 +36,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
-    selectedSprite: "redHatBoy",
+    selectedSprite: "dog",
   });
 
   const cherry = await User.create({
@@ -109,7 +109,8 @@ async function seed() {
       "lower until bar touches your mid chest",
     ],
     embedId: "OR6WM5Z2Hqs",
-    image: 'https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg'
+    image:
+      "https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg",
   });
 
   const chest5 = await Exercise.create({
@@ -233,7 +234,8 @@ async function seed() {
       "push hips back and lower dumbbells while keeping legs straight or slightly bent",
     ],
     embedId: "7AaaYhMqTws",
-    image: 'http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440'
+    image:
+      "http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440",
   });
   const legs3 = await Exercise.create({
     name: "Leg curl",
@@ -383,7 +385,8 @@ async function seed() {
       "keep core engaged, lift torso to return to starting positon",
     ],
     embedId: "vKPGe8zb2S4",
-    image: 'https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg'
+    image:
+      "https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg",
   });
 
   const lunge = await Exercise.create({
@@ -573,64 +576,47 @@ async function seed() {
   //creating our sprites
   const cat = await Sprite.create({
     name: "cat",
-    weightToUnlock: 0,
+    isDefault: true,
   });
-
   const dog = await Sprite.create({
     name: "dog",
-    weightToUnlock: 0,
+    isDefault: true,
   });
   const redHatBoy = await Sprite.create({
     name: "redHatBoy",
-    weightToUnlock: 0,
   });
-
   const cuteGirl = await Sprite.create({
     name: "cuteGirl",
-    weightToUnlock: 1000,
   });
   const adventureBoy = await Sprite.create({
     name: "adventureBoy",
-    weightToUnlock: 2000,
   });
   const zombie = await Sprite.create({
     name: "zombie",
-    weightToUnlock: 4000,
   });
-
   const ninjaGirl = await Sprite.create({
     name: "ninjaGirl",
-    weightToUnlock: 8000,
   });
   const jackOLantern = await Sprite.create({
     name: "jackOLantern",
-    weightToUnlock: 16000,
   });
-
   const ninjaBoy = await Sprite.create({
     name: "ninjaBoy",
-    weightToUnlock: 32000,
   });
-
   const adventureGirl = await Sprite.create({
     name: "adventureGirl",
-    weightToUnlock: 64000,
   });
   const dino = await Sprite.create({
     name: "dino",
-    weightToUnlock: 128000,
   });
   const robot = await Sprite.create({
     name: "robot",
-    weightToUnlock: 256000,
   });
   const santa = await Sprite.create({
     name: "santa",
-    weightToUnlock: 512000,
   });
   const knight = await Sprite.create({
     name: "knight",
-    weightToUnlock: 1024000,
   });
 
   //await cat.setUser(cherry);
@@ -650,16 +636,12 @@ async function seed() {
   await cherry.addSprite(knight);
   await ryan.addSprite(cat);
   await ryan.addSprite(dog);
-  await ryan.addSprite(redHatBoy);
   await admin.addSprite(cat);
   await admin.addSprite(dog);
-  await admin.addSprite(redHatBoy);
   await nicole.addSprite(cat);
   await nicole.addSprite(dog);
-  await nicole.addSprite(redHatBoy);
   await kyle.addSprite(cat);
   await kyle.addSprite(dog);
-  await kyle.addSprite(redHatBoy);
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
