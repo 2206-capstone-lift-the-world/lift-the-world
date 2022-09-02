@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../store";
 import { fetchSelectedSprite } from "../store/fetchSelectedSprite";
 import ProgressBar from "./ProgressBar";
+import { fetchUserStats } from "../store/userStats";
 
 const UserProfile = () => {
 
@@ -20,7 +21,7 @@ const UserProfile = () => {
 }, []);
 
 useEffect(()=>{
-  dispatch(fetchUserstats);
+  dispatch(fetchUserStats);
 }, [])
  
   const [frame, setFrame] = useState(0);
