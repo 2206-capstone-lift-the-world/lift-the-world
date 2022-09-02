@@ -12,8 +12,8 @@ export default function Timer() {
   const [isPaused, setIsPaused] = useState(true);
   const [secondsLeft, setSecondsLeft] = useState(0)
 
-  const secondsLeftRef = useRef(secondsLeft)
-  const isPausedRef = useRef(isPaused)
+  let secondsLeftRef = useRef(secondsLeft)
+  let isPausedRef = useRef(isPaused)
 
   function tick() {
     secondsLeftRef.current--;
@@ -28,13 +28,15 @@ export default function Timer() {
       if (isPausedRef.current) {
         return;
       } else if (secondsLeftRef.current === 0) {
+        setIsPaused(true);
+        isPausedRef.current = true;
         return;
       }
 
       tick()
-    }, 1000)
+    }, 100)
     
-    return () => clearInterval(interval)
+    return () => clearInterval(interval);
   }, [settingsInfo])
 
   const totalSeconds = settingsInfo.timer * 60;
