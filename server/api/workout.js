@@ -114,7 +114,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
     let newLevel = user.level;
 
     if (newTotal >= 1000) {
-      await user.addSprite(cuteGirl);
+      await user.addSprite(redHatBoy);
       if (newLevel < 2) {
         newLevel += 1;
         await user.update({ level: newLevel });
@@ -135,7 +135,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
               await user.update({ level: newLevel });
             }
             if (newTotal >= 12000) {
-              await user.addSprite(adventureBoy);
+              await user.addSprite(cuteGirl);
               if (newLevel < 6) {
                 newLevel += 1;
                 await user.update({ level: newLevel });
@@ -151,6 +151,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                     await user.update({ level: newLevel });
                   }
                   if (newTotal >= 25000) {
+                    await user.addSprite(adventureBoy);
                     if (newLevel < 9) {
                       newLevel += 1;
                       await user.update({ level: newLevel });
@@ -171,6 +172,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                             await user.update({ level: newLevel });
                           }
                           if (newTotal >= 50000) {
+                            await user.addSprite(zombie);
                             if (newLevel < 13) {
                               newLevel += 1;
                               await user.update({ level: newLevel });
@@ -186,6 +188,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                   await user.update({ level: newLevel });
                                 }
                                 if (newTotal >= 100000) {
+                                  await user.addSprite(ninjaGirl);
                                   if (newLevel < 16) {
                                     newLevel += 1;
                                     await user.update({ level: newLevel });
@@ -215,6 +218,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                             });
                                           }
                                           if (newTotal >= 250000) {
+                                            await user.addSprite(jackOLantern);
                                             if (newLevel < 21) {
                                               newLevel += 1;
                                               await user.update({
@@ -243,6 +247,9 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                     });
                                                   }
                                                   if (newTotal >= 500000) {
+                                                    await user.addSprite(
+                                                      ninjaBoy
+                                                    );
                                                     if (newLevel < 25) {
                                                       newLevel += 1;
                                                       await user.update({
@@ -288,6 +295,9 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                               newTotal >=
                                                               1000000
                                                             ) {
+                                                              await user.addSprite(
+                                                                adventureGirl
+                                                              );
                                                               if (
                                                                 newLevel < 30
                                                               ) {
@@ -366,6 +376,9 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                         newTotal >=
                                                                         1500000
                                                                       ) {
+                                                                        await user.addSprite(
+                                                                          dino
+                                                                        );
                                                                         if (
                                                                           newLevel <
                                                                           35
@@ -446,6 +459,9 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                   newTotal >=
                                                                                   2000000
                                                                                 ) {
+                                                                                  await user.addSprite(
+                                                                                    robot
+                                                                                  );
                                                                                   if (
                                                                                     newLevel <
                                                                                     40
@@ -478,9 +494,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                       newTotal >=
                                                                                       2200000
                                                                                     ) {
-                                                                                      await user.addSprite(
-                                                                                        adventureBoy
-                                                                                      );
                                                                                       if (
                                                                                         newLevel <
                                                                                         42
@@ -497,9 +510,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                         newTotal >=
                                                                                         2300000
                                                                                       ) {
-                                                                                        await user.addSprite(
-                                                                                          zombie
-                                                                                        );
                                                                                         if (
                                                                                           newLevel <
                                                                                           43
@@ -516,9 +526,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                           newTotal >=
                                                                                           2400000
                                                                                         ) {
-                                                                                          await user.addSprite(
-                                                                                            ninjaGirl
-                                                                                          );
                                                                                           if (
                                                                                             newLevel <
                                                                                             44
@@ -536,7 +543,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                             2500000
                                                                                           ) {
                                                                                             await user.addSprite(
-                                                                                              jackOLantern
+                                                                                              santa
                                                                                             );
                                                                                             if (
                                                                                               newLevel <
@@ -554,9 +561,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                               newTotal >=
                                                                                               2600000
                                                                                             ) {
-                                                                                              await user.addSprite(
-                                                                                                ninjaBoy
-                                                                                              );
                                                                                               if (
                                                                                                 newLevel <
                                                                                                 46
@@ -573,9 +577,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                 newTotal >=
                                                                                                 2700000
                                                                                               ) {
-                                                                                                await user.addSprite(
-                                                                                                  adventureGirl
-                                                                                                );
                                                                                                 if (
                                                                                                   newLevel <
                                                                                                   47
@@ -592,9 +593,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                   newTotal >=
                                                                                                   2800000
                                                                                                 ) {
-                                                                                                  await user.addSprite(
-                                                                                                    dino
-                                                                                                  );
                                                                                                   if (
                                                                                                     newLevel <
                                                                                                     48
@@ -611,9 +609,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                     newTotal >=
                                                                                                     2900000
                                                                                                   ) {
-                                                                                                    await user.addSprite(
-                                                                                                      robot
-                                                                                                    );
                                                                                                     if (
                                                                                                       newLevel <
                                                                                                       49
