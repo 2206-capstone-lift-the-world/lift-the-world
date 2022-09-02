@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getExercisesThunk } from "../../store/exercises";
 import { addToWorkout } from "../../store/workout";
 import { Link } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 const AllExercises = () => {
@@ -43,6 +43,10 @@ const AllExercises = () => {
                 <div className="exercise-btn-container">
                   <button
                     onClick={() => {
+<<<<<<< Updated upstream
+=======
+                      toast("Added to workout");
+>>>>>>> Stashed changes
                       dispatch(addToWorkout(exercise));
                     }}
                     className="exercise-add-btn"
@@ -54,6 +58,7 @@ const AllExercises = () => {
                   </button>
                 </div>
               </div>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             );
 =======
@@ -71,6 +76,9 @@ const AllExercises = () => {
             </div>
             )
 >>>>>>> fc6e675eb09ef44a4a3c81e141d75ee23edbaa72
+=======
+            );
+>>>>>>> Stashed changes
           })}
         </div>
       ) : (

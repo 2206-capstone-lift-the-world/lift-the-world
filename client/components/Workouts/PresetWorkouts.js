@@ -32,7 +32,10 @@ const PresetWorkouts = () => {
             workout={preset}
             to={`/workout/preset/${preset.id}`}
           >
-            <button>{preset.name}</button>
+            <button>
+              <img src="" />
+              {preset.name}
+            </button>
           </Link>
         );
       })}
