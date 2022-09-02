@@ -4,6 +4,7 @@ import { fetchSingleUser } from "../store/singleUser";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 import { fetchSelectedSprite } from "../store/fetchSelectedSprite";
+import ProgressBar from "./ProgressBar";
 
 const UserProfile = () => {
 
@@ -17,6 +18,10 @@ const UserProfile = () => {
   useEffect(()=>{
     dispatch(fetchSelectedSprite());
 }, []);
+
+useEffect(()=>{
+  dispatch(fetchUserstats);
+}, [])
  
   const [frame, setFrame] = useState(0);
   let [counter, setCounter] = useState(1);
@@ -57,7 +62,7 @@ const UserProfile = () => {
           src={character[frame]}
           className="character"
         />
-        <p className="character-margin">Progress bar goes here</p>
+        <ProgressBar color='yellow' percentage={50}/>
         <p className="character-margin">You've lifted a total of:</p>
         <p className="character-margin">
           {totalWeight.toLocaleString("en-US") || 0} lbs
