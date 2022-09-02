@@ -26,11 +26,15 @@ useEffect(()=>{
  
   const [frame, setFrame] = useState(0);
   let [counter, setCounter] = useState(1);
+  
 
   const user = useSelector((state) => state.singleUser);
   const username = useSelector((state) => state.auth.username);
   const spriteName = useSelector((state) =>  state.userSelectedSprite);
-  console.log('SPRITE NAME', spriteName);
+  const userStats = userSelector((state) => state.userStats) || {};
+  const {level, currentWeight} = userStats;
+  const percentage;
+
 
   const character = [
     `/sprites/${spriteName}/${spriteName}-idle.gif`,
@@ -38,6 +42,7 @@ useEffect(()=>{
     `/sprites/${spriteName}/${spriteName}-run.gif`,
     `/sprites/${spriteName}/${spriteName}-dead.gif`,
   ] || [];
+
 
   
   // change character animation on click
