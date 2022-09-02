@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Route, Switch, Redirect } from "react-router-dom";
+import { withRouter, Route, Switch } from "react-router-dom";
 import { Login, Signup } from "./components/Authorization/AuthForm";
 import Home from "./components/Home";
 import Recap from "./components/Workouts/Recap";
@@ -17,6 +17,7 @@ import SinglePreset from "./components/Workouts/SinglePreset";
 import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/Sprites";
 import HealthTipsAPI from "./components/HealthTipsAPI";
+import Timer from "./components/Timer/Timer";
 
 class Routes extends Component {
   componentDidMount() {
@@ -58,6 +59,7 @@ class Routes extends Component {
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />
                 <Route path="/sprites" component={ChooseSprites} />
+                <Route path="/timer" component={Timer} />
                 <Route path="/quotes" component={HealthTipsAPI} />
               </Switch>
             </div>
