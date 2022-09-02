@@ -91,7 +91,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
       status: "closed",
       workoutTotalWeight: totalWeightFromWorkout,
     });
-
+    const redHatBoy = await Sprite.findOne({ where: { name: "redHatBoy" } });
     const cuteGirl = await Sprite.findOne({ where: { name: "cuteGirl" } });
     const adventureBoy = await Sprite.findOne({
       where: { name: "adventureBoy" },
