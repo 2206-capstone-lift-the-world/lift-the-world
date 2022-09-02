@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getExercisesThunk } from "../../store/exercises";
 import { addToWorkout } from "../../store/workout";
 import { Link } from "react-router-dom";
-import Loading from "../Loading";
+import { toast } from 'react-toastify';
+// import "react-toastify/dist/ReactToastify.css";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -53,7 +54,23 @@ const AllExercises = () => {
                   </button>
                 </div>
               </div>
+<<<<<<< HEAD
             );
+=======
+              <div className="exercise-btn-container">
+                <button
+                  onClick={() => {
+                    toast('Added to workout'); 
+                    dispatch(addToWorkout(exercise));
+                  }}
+                  className="exercise-add-btn"
+                >
+                  <img src="/images/plus-solid.svg" className="exercise-add-btn-img" />
+                </button>
+              </div>
+            </div>
+            )
+>>>>>>> fc6e675eb09ef44a4a3c81e141d75ee23edbaa72
           })}
         </div>
       ) : (

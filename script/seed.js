@@ -59,8 +59,7 @@ async function seed() {
     selectedSprite: "dog",
   });
 
-  //creating exercises for presets
-
+  // creating exercises for presets
   const chest1 = await Exercise.create({
     name: "Bench press",
     category: "chest",
@@ -109,7 +108,8 @@ async function seed() {
       "lower until bar touches your mid chest",
     ],
     embedId: "OR6WM5Z2Hqs",
-    image: 'https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg'
+    image:
+      "https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg",
   });
 
   const chest5 = await Exercise.create({
@@ -233,7 +233,8 @@ async function seed() {
       "push hips back and lower dumbbells while keeping legs straight or slightly bent",
     ],
     embedId: "7AaaYhMqTws",
-    image: 'http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440'
+    image:
+      "http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440",
   });
   const legs3 = await Exercise.create({
     name: "Leg curl",
@@ -383,7 +384,8 @@ async function seed() {
       "keep core engaged, lift torso to return to starting positon",
     ],
     embedId: "vKPGe8zb2S4",
-    image: 'https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg'
+    image:
+      "https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg",
   });
 
   const lunge = await Exercise.create({
@@ -556,20 +558,6 @@ async function seed() {
   await workout1.setUser(cherry);
   await workout2.setUser(cherry);
 
-  // await workout1.addExercise(chest1);
-
-  // const closed1 = await WorkoutList.findOne({
-  //   where: {
-  //     exerciseId: 1,
-  //     workoutId: 7,
-  //   },
-  // });
-
-  // await closed1.setUser(cherry);
-
-  // closed1.sets = [{ reps: 3, weight: 40 }];
-  // await closed1.save();
-
   //creating our sprites
   const cat = await Sprite.create({
     name: "cat",
@@ -661,11 +649,6 @@ async function seed() {
   await kyle.addSprite(dog);
   await kyle.addSprite(redHatBoy);
 
-  // const test = await User.findByPk(1, {
-  //   include: [{ model: Workout, include: [Exercise] }],
-  // });
-
-  // console.log('TEST', test.workouts[0].exercises[0].workoutlist.sets);
   console.log(`seeded successfully`);
 }
 
