@@ -13,14 +13,18 @@ const PresetWorkouts = () => {
     dispatch(getPresetsThunk());
   }, [dispatch]);
 
-  if (!presets || presets.length === 0) {
+  if (!presets || !presets[0] || presets.length === 0) {
     return (
       <div>
         <Loading />
       </div>
     );
   }
+<<<<<<< HEAD
   console.log("presets", presets);
+=======
+
+>>>>>>> 9838cbbac243e198791edbe5329293f5e30e0c6d
   return (
     <div>
       <h1 className="presets-heading">
