@@ -16,7 +16,7 @@ import ExerciseGroup from "./components/MuscleGroups/ExerciseGroup";
 import SinglePreset from "./components/Workouts/SinglePreset";
 import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/Sprites";
-import Timer from "./components/Timer";
+import Timer from "./components/Timer/Timer";
 
 class Routes extends Component {
   componentDidMount() {
