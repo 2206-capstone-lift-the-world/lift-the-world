@@ -27,14 +27,14 @@ export default function Timer() {
     const interval = setInterval(() => {
       if (isPausedRef.current) {
         return;
+      } else if (secondsLeftRef.current === 0) {
+        return;
       }
 
       tick()
-    }, 100)
+    }, 1000)
     
-    if (isPausedRef.current === 0) {
-      return () => clearInterval(interval)
-    }
+    return () => clearInterval(interval)
   }, [settingsInfo])
 
   const totalSeconds = settingsInfo.timer * 60;
