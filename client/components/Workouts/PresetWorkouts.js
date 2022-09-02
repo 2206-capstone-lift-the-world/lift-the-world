@@ -12,7 +12,7 @@ const PresetWorkouts = () => {
   useEffect(() => {
     dispatch(getPresetsThunk());
   }, [dispatch]);
-
+  console.log("presets workouts", presets);
   if (!presets || !presets[0] || presets.length === 0) {
     return (
       <div>
@@ -20,11 +20,6 @@ const PresetWorkouts = () => {
       </div>
     );
   }
-<<<<<<< HEAD
-  console.log("presets", presets);
-=======
-
->>>>>>> 9838cbbac243e198791edbe5329293f5e30e0c6d
   return (
     <div>
       <h1 className="presets-heading">
