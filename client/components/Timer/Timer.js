@@ -6,7 +6,7 @@ import PauseButton from "./PauseButton";
 import Settings from "./Settings";
 import SettingsContext from "./SettingsContext";
 
-export default function Timer() {
+export default function Timer({ closeModal }) {
   const settingsInfo = useContext(SettingsContext)
 
   const [isPaused, setIsPaused] = useState(true);
@@ -49,7 +49,7 @@ export default function Timer() {
   }
 
   return (
-    <div>
+    <div className="timer-container">
       <CircularProgressbar
         value={percentage}
         text={minutes + ':' + seconds}
@@ -71,6 +71,10 @@ export default function Timer() {
 
       <div>
         <Settings />
+      </div>
+
+      <div className="timer-modal-close-btn-container">
+        <button onClick={() => closeModal(false)} className="timer-modal-close-btn">Back to lifting!</button>
       </div>
     </div>
   );
