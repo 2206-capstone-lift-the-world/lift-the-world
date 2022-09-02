@@ -50,53 +50,6 @@ const User = db.define("user", {
     type: Sequelize.STRING,
     defaultValue: "cat",
   },
-<<<<<<< HEAD
-  hasReached2: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached3: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached4: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached5: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached6: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached7: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached8: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached9: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached10: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached11: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  hasReached12: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-=======
->>>>>>> fc6e675eb09ef44a4a3c81e141d75ee23edbaa72
 });
 
 module.exports = User;
