@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchExercise } from "../../store/singleExercise";
 import { addToWorkout } from "../../store/workout";
 import { useParams } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import YoutubeEmbed from "./YoutubeEmbed";
-
+import Loading from "../Loading";
 
 const SingleExercise = () => {
   let { id } = useParams();
@@ -19,11 +19,11 @@ const SingleExercise = () => {
 
   const handleAdd = (event) => {
     event.preventDefault();
-    toast('Added to workout');
+    toast("Added to workout");
     dispatch(addToWorkout(exercise));
   };
 
-  const notify = () => toast('Added to workout')
+  const notify = () => toast("Added to workout");
 
   return (
     <div>
@@ -49,7 +49,7 @@ const SingleExercise = () => {
         </div>
       ) : (
         <div>
-          <p>No exercises found</p>
+          <Loading />
         </div>
       )}
     </div>
