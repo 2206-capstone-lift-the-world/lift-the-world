@@ -10,7 +10,6 @@ export const Home = () => {
       <h3 className="homepage-header">Welcome, {username}</h3>
 
       <div className="homepage-btn-container">
-        
         <div className="homepage-link-btn">
           <Link to="/musclegroups" className="homepage-btn-link">
             <button className="homepage-btn">See Muscle Groups</button>
@@ -35,15 +34,10 @@ export const Home = () => {
           </Link>
         </div>
 
-        {/* <div className="homepage-link-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            <button className="homepage-btn">Chat With a Trainer</button>
-          </Link>
-        </div> */}
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>
   );
 };
 
-export default Home
+export default Home;

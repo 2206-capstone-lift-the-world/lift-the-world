@@ -50,6 +50,7 @@ const User = db.define("user", {
     type: Sequelize.STRING,
     defaultValue: "cat",
   },
+<<<<<<< HEAD
   hasReached2: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
@@ -94,6 +95,8 @@ const User = db.define("user", {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
+=======
+>>>>>>> fc6e675eb09ef44a4a3c81e141d75ee23edbaa72
 });
 
 module.exports = User;
