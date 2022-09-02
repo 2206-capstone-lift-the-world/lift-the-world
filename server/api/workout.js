@@ -215,49 +215,49 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                             });
                                           }
                                           if (newTotal >= 250000) {
-                                            if (newLevel < 3) {
+                                            if (newLevel < 21) {
                                               newLevel += 1;
                                               await user.update({
                                                 level: newLevel,
                                               });
                                             }
                                             if (newTotal >= 300000) {
-                                              if (newLevel < 3) {
+                                              if (newLevel < 22) {
                                                 newLevel += 1;
                                                 await user.update({
                                                   level: newLevel,
                                                 });
                                               }
                                               if (newTotal >= 350000) {
-                                                if (newLevel < 3) {
+                                                if (newLevel < 23) {
                                                   newLevel += 1;
                                                   await user.update({
                                                     level: newLevel,
                                                   });
                                                 }
                                                 if (newTotal >= 400000) {
-                                                  if (newLevel < 3) {
+                                                  if (newLevel < 24) {
                                                     newLevel += 1;
                                                     await user.update({
                                                       level: newLevel,
                                                     });
                                                   }
                                                   if (newTotal >= 500000) {
-                                                    if (newLevel < 3) {
+                                                    if (newLevel < 25) {
                                                       newLevel += 1;
                                                       await user.update({
                                                         level: newLevel,
                                                       });
                                                     }
                                                     if (newTotal >= 600000) {
-                                                      if (newLevel < 3) {
+                                                      if (newLevel < 26) {
                                                         newLevel += 1;
                                                         await user.update({
                                                           level: newLevel,
                                                         });
                                                       }
                                                       if (newTotal >= 700000) {
-                                                        if (newLevel < 3) {
+                                                        if (newLevel < 27) {
                                                           newLevel += 1;
                                                           await user.update({
                                                             level: newLevel,
@@ -266,7 +266,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                         if (
                                                           newTotal >= 800000
                                                         ) {
-                                                          if (newLevel < 3) {
+                                                          if (newLevel < 28) {
                                                             newLevel += 1;
                                                             await user.update({
                                                               level: newLevel,
@@ -275,7 +275,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                           if (
                                                             newTotal >= 900000
                                                           ) {
-                                                            if (newLevel < 3) {
+                                                            if (newLevel < 29) {
                                                               newLevel += 1;
                                                               await user.update(
                                                                 {
@@ -289,7 +289,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                               1000000
                                                             ) {
                                                               if (
-                                                                newLevel < 3
+                                                                newLevel < 30
                                                               ) {
                                                                 newLevel += 1;
                                                                 await user.update(
@@ -304,7 +304,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                 1100000
                                                               ) {
                                                                 if (
-                                                                  newLevel < 3
+                                                                  newLevel < 31
                                                                 ) {
                                                                   newLevel += 1;
                                                                   await user.update(
@@ -319,7 +319,8 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                   1200000
                                                                 ) {
                                                                   if (
-                                                                    newLevel < 3
+                                                                    newLevel <
+                                                                    32
                                                                   ) {
                                                                     newLevel += 1;
                                                                     await user.update(
@@ -335,7 +336,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                   ) {
                                                                     if (
                                                                       newLevel <
-                                                                      3
+                                                                      33
                                                                     ) {
                                                                       newLevel += 1;
                                                                       await user.update(
@@ -351,7 +352,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                     ) {
                                                                       if (
                                                                         newLevel <
-                                                                        3
+                                                                        34
                                                                       ) {
                                                                         newLevel += 1;
                                                                         await user.update(
@@ -367,7 +368,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                       ) {
                                                                         if (
                                                                           newLevel <
-                                                                          3
+                                                                          35
                                                                         ) {
                                                                           newLevel += 1;
                                                                           await user.update(
@@ -383,7 +384,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                         ) {
                                                                           if (
                                                                             newLevel <
-                                                                            3
+                                                                            36
                                                                           ) {
                                                                             newLevel += 1;
                                                                             await user.update(
@@ -399,7 +400,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                           ) {
                                                                             if (
                                                                               newLevel <
-                                                                              3
+                                                                              37
                                                                             ) {
                                                                               newLevel += 1;
                                                                               await user.update(
@@ -415,7 +416,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                             ) {
                                                                               if (
                                                                                 newLevel <
-                                                                                3
+                                                                                38
                                                                               ) {
                                                                                 newLevel += 1;
                                                                                 await user.update(
@@ -431,7 +432,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                               ) {
                                                                                 if (
                                                                                   newLevel <
-                                                                                  3
+                                                                                  39
                                                                                 ) {
                                                                                   newLevel += 1;
                                                                                   await user.update(
@@ -447,7 +448,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                 ) {
                                                                                   if (
                                                                                     newLevel <
-                                                                                    3
+                                                                                    40
                                                                                   ) {
                                                                                     newLevel += 1;
                                                                                     await user.update(
@@ -463,7 +464,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                   ) {
                                                                                     if (
                                                                                       newLevel <
-                                                                                      3
+                                                                                      41
                                                                                     ) {
                                                                                       newLevel += 1;
                                                                                       await user.update(
@@ -482,7 +483,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                       );
                                                                                       if (
                                                                                         newLevel <
-                                                                                        6
+                                                                                        42
                                                                                       ) {
                                                                                         newLevel += 1;
                                                                                         await user.update(
@@ -501,7 +502,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                         );
                                                                                         if (
                                                                                           newLevel <
-                                                                                          7
+                                                                                          43
                                                                                         ) {
                                                                                           newLevel += 1;
                                                                                           await user.update(
@@ -520,7 +521,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                           );
                                                                                           if (
                                                                                             newLevel <
-                                                                                            8
+                                                                                            44
                                                                                           ) {
                                                                                             newLevel += 1;
                                                                                             await user.update(
@@ -539,7 +540,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                             );
                                                                                             if (
                                                                                               newLevel <
-                                                                                              9
+                                                                                              45
                                                                                             ) {
                                                                                               newLevel += 1;
                                                                                               await user.update(
@@ -558,7 +559,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                               );
                                                                                               if (
                                                                                                 newLevel <
-                                                                                                10
+                                                                                                46
                                                                                               ) {
                                                                                                 newLevel += 1;
                                                                                                 await user.update(
@@ -577,7 +578,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                 );
                                                                                                 if (
                                                                                                   newLevel <
-                                                                                                  11
+                                                                                                  47
                                                                                                 ) {
                                                                                                   newLevel += 1;
                                                                                                   await user.update(
@@ -596,7 +597,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                   );
                                                                                                   if (
                                                                                                     newLevel <
-                                                                                                    12
+                                                                                                    48
                                                                                                   ) {
                                                                                                     newLevel += 1;
                                                                                                     await user.update(
@@ -615,7 +616,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                     );
                                                                                                     if (
                                                                                                       newLevel <
-                                                                                                      13
+                                                                                                      49
                                                                                                     ) {
                                                                                                       newLevel += 1;
                                                                                                       await user.update(
@@ -634,7 +635,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                                                                                                       );
                                                                                                       if (
                                                                                                         newLevel <
-                                                                                                        14
+                                                                                                        50
                                                                                                       ) {
                                                                                                         newLevel += 1;
                                                                                                         await user.update(
