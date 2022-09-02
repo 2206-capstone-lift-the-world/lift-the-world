@@ -37,7 +37,9 @@ const SinglePreset = () => {
           </button>
         </div>
       ) : (
-        <p> No preset workout here!</p>
+        <div>
+          <Loading />
+        </div>
       )}
     </div>
   );

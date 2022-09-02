@@ -20,9 +20,12 @@ const PresetWorkouts = () => {
       </div>
     );
   }
+  console.log("presets", presets);
   return (
     <div>
-      <h1>Need Help Getting Started? Choose from the Workouts Below:</h1>
+      <h1 className="presets-heading">
+        Need help getting started? Choose from the workouts below:
+      </h1>
       {presets.map((preset) => {
         return (
           <Link
