@@ -15,11 +15,7 @@ export const WorkoutSummary = () => {
     !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+    return <div>Loading...</div>;
   }
 
   const { allExercises } = workoutlist || [];
