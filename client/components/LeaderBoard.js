@@ -15,8 +15,8 @@ const LeaderBoard = () => {
       <img src="images/crown.png" className="leaderboard-crown" />
       <h1 className="lb-h1-heading">Leaderboard</h1>
       <div className="lb-table-headings">
-        <p className="lb-single-heading">Username</p>
-        <p className="lb-single-heading">Lifted</p>
+        <p className="lb-single-heading lb-username-heading">Username</p>
+        <p className="lb-single-heading lb-lifted-heading">Lifted</p>
       </div>
       <div>
         {topTen.map((user) => {

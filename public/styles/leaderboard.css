@@ -13,15 +13,15 @@
 
 .lb-table-headings {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  width: 15rem;
   margin-top: 0.75rem;
-
-  gap: 6.5rem;
 }
 
 .lb-single-heading {
   font-size: 0.75rem;
   font-weight: 600;
+  margin: 0.25rem;
 }
 
 .lb-info-container {
@@ -33,6 +33,16 @@
 
 .lb-info {
   margin: 0.25rem;
+}
+
+.lb-username-heading {
+  width: 66%;
+  text-align: center;
+}
+
+.lb-lifted-heading {
+  width: 33%;
+  text-align: center;
 }
 
 .lb-name {
