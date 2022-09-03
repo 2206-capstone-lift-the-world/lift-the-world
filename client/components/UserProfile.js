@@ -6,34 +6,30 @@ import { logout } from "../store";
 import { fetchSelectedSprite } from "../store/fetchSelectedSprite";
 
 const UserProfile = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchSingleUser());
   }, []);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchSelectedSprite());
-}, []);
- 
+  }, []);
+
   const [frame, setFrame] = useState(0);
   let [counter, setCounter] = useState(1);
 
   const user = useSelector((state) => state.singleUser);
   const username = useSelector((state) => state.auth.username);
-  const spriteName = useSelector((state) =>  state.userSelectedSprite);
-  console.log('SPRITE NAME', spriteName);
+  const spriteName = useSelector((state) => state.userSelectedSprite);
+  const character =
+    [
+      `/sprites/${spriteName}/${spriteName}-idle.gif`,
+      `/sprites/${spriteName}/${spriteName}-jump.gif`,
+      `/sprites/${spriteName}/${spriteName}-run.gif`,
+      `/sprites/${spriteName}/${spriteName}-dead.gif`,
+    ] || [];
 
-  const character = [
-    `/sprites/${spriteName}/${spriteName}-idle.gif`,
-    `/sprites/${spriteName}/${spriteName}-jump.gif`,
-    `/sprites/${spriteName}/${spriteName}-run.gif`,
-    `/sprites/${spriteName}/${spriteName}-dead.gif`,
-  ] || [];
-
-  
   // change character animation on click
   const counterFunc = () => {
     setFrame(counter);
@@ -62,7 +58,9 @@ const UserProfile = () => {
         <p className="character-margin">
           {totalWeight.toLocaleString("en-US") || 0} lbs
         </p>
-        <Link to='/sprites'><button className="progress-btn">View Unlocked Sprites</button></Link>
+        <Link to="/sprites">
+          <button className="progress-btn">View Unlocked Sprites</button>
+        </Link>
         <Link to="/login">
           <button className="logout-btn" onClick={() => dispatch(logout())}>
             Logout

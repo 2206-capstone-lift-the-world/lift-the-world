@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchExerciseCategory } from "../../store/exercises";
 import { addToWorkout } from "../../store/workout";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Loading from "../Loading";
 
 export default function ExerciseGroup(props) {
@@ -48,8 +49,8 @@ export default function ExerciseGroup(props) {
                 <div className="exercise-btn-container">
                   <button
                     onClick={() => {
+                      toast("Added to workout");
                       dispatch(addToWorkout(exercise));
-                      // notification("info");
                     }}
                     className="exercise-add-btn"
                   >
