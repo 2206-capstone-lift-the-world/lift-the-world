@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getExercisesThunk } from "../../store/exercises";
 import { addToWorkout } from "../../store/workout";
-import { useParams } from "react-router-dom";
-import YoutubeEmbed from "./YoutubeEmbed";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Loading from "../Loading";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -19,28 +19,50 @@ const AllExercises = () => {
       {exercises ? (
         <div className="all-exercises-container">
           <h1 className="all-exercises-heading">All Exercises</h1>
-          <ul className="all-exercises-list">
-            {exercises.map((exercise) => {
-              return (
-                <li key={exercise.id} className="all-exercises-list-item">
-                  <Link to={`/exercise/${exercise.id}`} className="all-exercises-list-name">
+          {exercises.map((exercise) => {
+            return (
+              <div className="exercise-container" key={exercise.id}>
+                <div className="exercise-img-container">
+                  <Link to={`/exercise/${exercise.id}`}>
+                    <img src={exercise.image} className="exercise-img" />
+                  </Link>
+                </div>
+                <div className="exercise-info-container">
+                  <Link
+                    to={`/exercise/${exercise.id}`}
+                    className="exercise-name"
+                  >
                     {exercise.name}
                   </Link>
-                  <button 
-                    onClick={() => dispatch(addToWorkout(exercise))}
-                    className="all-exercises-add-btn"
+
+                  <Link
+                    to={`/musclegroups/${exercise.category}`}
+                    className="exercise-category"
                   >
-                    add to workout
+                    {exercise.category}
+                  </Link>
+                </div>
+                <div className="exercise-btn-container">
+                  <button
+                    onClick={() => {
+                      toast("Added to workout");
+                      dispatch(addToWorkout(exercise));
+                    }}
+                    className="exercise-add-btn"
+                  >
+                    <img
+                      src="/images/plus-solid.svg"
+                      className="exercise-add-btn-img"
+                    />
                   </button>
-                </li>
-                
-              );
-            })}
-          </ul>
+                </div>
+              </div>
+            );
+          })}
         </div>
       ) : (
         <div>
-          <p>No exercises found</p>
+          <Loading />
         </div>
       )}
     </div>

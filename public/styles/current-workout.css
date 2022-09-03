@@ -6,8 +6,8 @@
 .cw-workout-name {
   display: flex;
   flex-direction: row;
-  font-size: 1.35rem;
-  margin-bottom: 0;
+  font-size: 1.25rem;
+  margin: 0;
   font-weight: 500;
 }
 .cw-exercise-name {
@@ -21,7 +21,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 .25rem;
+  padding: 0;
+  font-size: .5rem;
 }
 
 .cw-heading {
@@ -31,17 +32,18 @@
   color: #5B5757;
 }
 
-.cw-previous-heading {
+.cw-pushed-heading {
   width: 3.5rem;
   text-align: center;
+  margin-left: .7rem;
 }
 
 .cw-weight-heading {
-  margin-left: .25rem;
+  margin-left: 1rem;
 }
 
 .cw-heading-check {
-  margin-right: .25rem;
+  margin-left: .25rem;
 }
 
 .cw-info-container {
@@ -76,24 +78,28 @@
 }
 
 .cw-rep-input {
-  margin-left: .8rem;
+  margin-left: .25rem;
   width: 1.5rem;
 }
 
 .cw-weight-input {
   height: 1.25rem;
-  width: 2.5rem;
+  width: 2.25rem;
   background: #C9E0E8;
   border-radius: 5px;
   border: none;
-  margin-left: .6rem;
+  margin-left: .5rem;
+}
+
+.cw-reps-heading {
+  margin-left: 1.35rem;
 }
 
 .cw-check-input {
   background: #C8E5B8;
 }
 
-.cw-previous {
+.cw-pushed {
   font-size: .7rem;
   margin: 0;
   color: #5B5757;
@@ -109,7 +115,17 @@
 
 .cw-add-btn {
   font-size: .8rem;
-  background: #DDE5F0;
+  background: #D2EBC0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+  width: 10rem;
+  height: 1.5rem;
+}
+
+.cw-delete-btn {
+  font-size: .8rem;
+  background: #E5C7CC;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   border: none;
@@ -119,7 +135,7 @@
 
 .cw-finish-btn {
   font-size: .8rem;
-  background: #CEE2CD;
+  background: #D3DDE5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   border: none;
@@ -131,10 +147,21 @@
   font-size: .8rem;
 }
 
-.set-delete-btn {
+.exercise-delete-btn {
   border: none;
+  background: inherit;
+  padding-left: .75rem;
 }
 
-.set-delete-btn-img {
+.exercise-delete-btn-img {
   height: 1rem;
+}
+
+.cw-exercise-name-btn {
+  margin: .5rem 0;
+}
+
+.cw-finish-workout-btn {
+  display: flex;
+  justify-content: center;
 }
