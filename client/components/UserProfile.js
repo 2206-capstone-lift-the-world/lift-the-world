@@ -25,13 +25,9 @@ useEffect(()=>{
   const [frame, setFrame] = useState(0);
   let [counter, setCounter] = useState(1);
   
-
   const user = useSelector((state) => state.singleUser);
   const username = useSelector((state) => state.auth.username);
-<<<<<<< HEAD
   const spriteName = useSelector((state) => state.userSelectedSprite);
-=======
-  const spriteName = useSelector((state) =>  state.userSelectedSprite);
   const userStats = useSelector((state) => state.userStats);
   const {level, currentWeight} = userStats;
   const percentage = (lvl, cw)=>{
@@ -234,8 +230,6 @@ useEffect(()=>{
       return Math.floor((cw / range) * 100)
     }
   };
-
->>>>>>> 3b46b035f4ebcc50a3cb1aa0359ad35ab5ecd79c
 
   const character =
     [
