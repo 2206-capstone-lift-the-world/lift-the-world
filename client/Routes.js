@@ -18,6 +18,7 @@ import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/Sprites";
 import HealthTipsAPI from "./components/HealthTipsAPI";
 import Timer from "./components/Timer/Timer";
+import ModalOnLeveling from "./components/ModalOnLeveling";
 
 class Routes extends Component {
   componentDidMount() {
@@ -60,7 +61,10 @@ class Routes extends Component {
                 <Route path="/profile" component={UserProfile} />
                 <Route path="/sprites" component={ChooseSprites} />
                 <Route path="/timer" component={Timer} />
-                <Route path="/quotes" component={HealthTipsAPI} />
+
+                {/* Testing components with these route paths */}
+                <Route path="/healthTips" component={HealthTipsAPI} />
+                <Route path="/modal" component={ModalOnLeveling} />
               </Switch>
             </div>
           </>

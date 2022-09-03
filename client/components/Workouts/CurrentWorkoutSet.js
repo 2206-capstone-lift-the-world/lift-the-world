@@ -45,6 +45,7 @@ const CurrentWorkoutSet = (props) => {
             className="cw-sr-input cw-rep-input"
             type="number"
             min="0"
+            max="50"
             name="reps"
             value={setInfo.reps}
             onChange={handleChange}
@@ -54,6 +55,7 @@ const CurrentWorkoutSet = (props) => {
             className="cw-weight-input"
             type="number"
             min="0"
+            max="1000"
             name="weight"
             value={setInfo.weight}
             onChange={handleChange}

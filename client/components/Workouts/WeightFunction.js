@@ -154,7 +154,7 @@ export function weightFunction(weight) {
       image:
         "https://chalkbeat.brightspotcdn.com/dims4/default/2ea9bf1/2147483647/strip/true/crop/7360x4201+0+711/resize/1461x834!/quality/90/?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2Fjo1iolvhiW5TF8XDi82TWqza_oY%3D%2F0x0%3A7360x4912%2F7360x4912%2Ffilters%3Afocal%284707x3488%3A4708x3489%29%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F19648441%2FNYC_Uncommon_Schools_Brooklyn_East_Collegiate_05.jpg",
     };
-  } else if (weight > 25000 && weight <= 338000) {
+  } else if (weight > 25000 && weight <= 38000) {
     return {
       name: "13.5 school buses",
       image:
