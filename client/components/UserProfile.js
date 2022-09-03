@@ -267,6 +267,7 @@ useEffect(()=>{
           src={character[frame]}
           className="character"
         />
+        <h4>Level Progress:</h4>
         <ProgressBar percentage={percentage(level, currentWeight)}/>
         <p className="character-margin">You've lifted a total of:</p>
         <p className="character-margin">
