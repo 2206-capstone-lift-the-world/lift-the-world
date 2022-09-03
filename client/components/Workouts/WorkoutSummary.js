@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkoutlist } from "../../store/workoutlist";
-import Loading from "../Loading";
 
 export const WorkoutSummary = () => {
   const dispatch = useDispatch();
