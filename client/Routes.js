@@ -18,7 +18,7 @@ import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/Sprites";
 import HealthTipsAPI from "./components/HealthTipsAPI";
 import Timer from "./components/Timer/Timer";
-import ModalOnLeveling from "./components/ModalOnLeveling";
+import PreviousWorkouts from "./components/Workouts/PreviousWorkouts";
 
 class Routes extends Component {
   componentDidMount() {
@@ -54,6 +54,11 @@ class Routes extends Component {
                   exact
                   path="/workout/preset/:id"
                   component={SinglePreset}
+                />
+                <Route
+                  exact
+                  path="/workout/previous"
+                  component={PreviousWorkouts}
                 />
                 <Route exact path="/exercises" component={AllExercises} />
                 <Route exact path="/exercise/:id" component={SingleExercise} />

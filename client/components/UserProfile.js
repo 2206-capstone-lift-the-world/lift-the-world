@@ -22,6 +22,7 @@ const UserProfile = () => {
   const user = useSelector((state) => state.singleUser);
   const username = useSelector((state) => state.auth.username);
   const spriteName = useSelector((state) => state.userSelectedSprite);
+
   const character =
     [
       `/sprites/${spriteName}/${spriteName}-idle.gif`,
@@ -30,7 +31,6 @@ const UserProfile = () => {
       `/sprites/${spriteName}/${spriteName}-dead.gif`,
     ] || [];
 
-  // change character animation on click
   const counterFunc = () => {
     setFrame(counter);
     setCounter(counter + 1);
@@ -58,14 +58,21 @@ const UserProfile = () => {
         <p className="character-margin">
           {totalWeight.toLocaleString("en-US") || 0} lbs
         </p>
-        <Link to="/sprites">
-          <button className="progress-btn">View Unlocked Sprites</button>
-        </Link>
-        <Link to="/login">
-          <button className="logout-btn" onClick={() => dispatch(logout())}>
-            Logout
-          </button>
-        </Link>
+        <div className="profile-btns-container">
+          <Link to="/sprites">
+            <button className="progress-btn">View Unlocked Sprites</button>
+          </Link>
+          <Link to="/workout/previous">
+            <button className="profile-previous-btn">
+              View Previous Workouts
+            </button>
+          </Link>
+          <Link to="/login">
+            <button className="logout-btn" onClick={() => dispatch(logout())}>
+              Logout
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );
