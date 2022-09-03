@@ -28,10 +28,6 @@ const User = db.define("user", {
   password: {
     type: Sequelize.STRING,
   },
-  isAdmin: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
   totalWeight: {
     type: Sequelize.INTEGER,
     validate: {
@@ -105,7 +101,7 @@ User.beforeBulkCreate((users) => Promise.all(users.map(hashPassword)));
 User.addHook("afterCreate", async (user) => {
   const sprites = await Sprite.findAll({
     where: {
-      weightToUnlock: 0,
+      isDefault: true,
     },
   });
   sprites.map((sprite) => {

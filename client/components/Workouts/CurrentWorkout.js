@@ -1,28 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addSet,
   fetchWorkoutlist,
   deleteFromWorkout,
-  deleteSet
+  deleteSet,
 } from "../../store/workoutlist";
 import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 import LoadingAddWorkout from "../LoadingAddWorkout";
+import Timer from "../Timer/Timer";
 
 const CurrentWorkout = () => {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
   const workout = useSelector((state) => state.workout);
 
+  const [openModal, setOpenModal] = useState(false);
+
   useEffect(() => {
     dispatch(fetchWorkout());
     dispatch(fetchWorkoutlist());
-  }, [dispatch]);
+  }, []);
 
   if (
-    !workoutlist.allExercises || !workoutlist.allExercises.exercises ||
+    !workoutlist.allExercises ||
+    !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
     return (
@@ -38,6 +42,15 @@ const CurrentWorkout = () => {
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
+        {!openModal && (
+          <button
+            className="timer-modal-btn"
+            onClick={() => setOpenModal(true)}
+          >
+            <img src="/images/timer.png" className="timer-modal-img" />
+          </button>
+        )}
+        {openModal && <Timer closeModal={setOpenModal} />}
         <h1 className="cw-workout-name">{workout.name}</h1>
         {allExercises.exercises.map((exercise) => {
           return (
@@ -49,8 +62,14 @@ const CurrentWorkout = () => {
                 >
                   {exercise.name}
                 </Link>
-                <button className="exercise-delete-btn" onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
-                  <img className="exercise-delete-btn-img" src="/images/trash.png" />
+                <button
+                  className="exercise-delete-btn"
+                  onClick={() => dispatch(deleteFromWorkout(exercise.id))}
+                >
+                  <img
+                    className="exercise-delete-btn-img"
+                    src="/images/trash.png"
+                  />
                 </button>
               </div>
               <div className="cw-exercise">
@@ -75,7 +94,7 @@ const CurrentWorkout = () => {
                 })}
 
                 <div className="cw-btn-container">
-                <button
+                  <button
                     className="cw-delete-btn"
                     onClick={() => dispatch(deleteSet(exercise.id))}
                   >

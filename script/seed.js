@@ -8,24 +8,12 @@ async function seed() {
   console.log("db synced!");
 
   // Creating Users
-
-  const admin = await User.create({
-    username: "admin",
-    email: "admin@gmail.com",
-    password: "123",
-    isAdmin: true,
-    totalWeight: 12094,
-    level: 18,
-    selectedSprite: "dog",
-  });
-
   const kyle = await User.create({
     username: "kyle",
     email: "kparki@email.com",
     password: "123",
-    isAdmin: false,
-    totalWeight: 12097,
-    level: 18,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "cat",
   });
 
@@ -33,19 +21,17 @@ async function seed() {
     username: "nicky",
     email: "nicole@hong.com",
     password: "123",
-    isAdmin: true,
-    totalWeight: 44867,
-    level: 43,
-    selectedSprite: "redHatBoy",
+    totalWeight: 0,
+    level: 1,
+    selectedSprite: "dog",
   });
 
   const cherry = await User.create({
     username: "cherry",
     email: "cherry@xu.com",
     password: "123",
-    isAdmin: true,
-    totalWeight: 39126,
-    level: 33,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "cat",
   });
 
@@ -53,9 +39,8 @@ async function seed() {
     username: "ryan",
     email: "ryan@scoville.com",
     password: "123",
-    isAdmin: false,
-    totalWeight: 28643,
-    level: 24,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "dog",
   });
 
@@ -598,93 +583,57 @@ async function seed() {
   //creating our sprites
   const cat = await Sprite.create({
     name: "cat",
-    weightToUnlock: 0,
+    isDefault: true,
   });
-
   const dog = await Sprite.create({
     name: "dog",
-    weightToUnlock: 0,
+    isDefault: true,
   });
   const redHatBoy = await Sprite.create({
     name: "redHatBoy",
-    weightToUnlock: 0,
   });
-
   const cuteGirl = await Sprite.create({
     name: "cuteGirl",
-    weightToUnlock: 1000,
   });
   const adventureBoy = await Sprite.create({
     name: "adventureBoy",
-    weightToUnlock: 2000,
   });
   const zombie = await Sprite.create({
     name: "zombie",
-    weightToUnlock: 4000,
   });
-
   const ninjaGirl = await Sprite.create({
     name: "ninjaGirl",
-    weightToUnlock: 8000,
   });
   const jackOLantern = await Sprite.create({
     name: "jackOLantern",
-    weightToUnlock: 16000,
   });
-
   const ninjaBoy = await Sprite.create({
     name: "ninjaBoy",
-    weightToUnlock: 32000,
   });
-
   const adventureGirl = await Sprite.create({
     name: "adventureGirl",
-    weightToUnlock: 64000,
   });
   const dino = await Sprite.create({
     name: "dino",
-    weightToUnlock: 128000,
   });
   const robot = await Sprite.create({
     name: "robot",
-    weightToUnlock: 256000,
   });
   const santa = await Sprite.create({
     name: "santa",
-    weightToUnlock: 512000,
   });
   const knight = await Sprite.create({
     name: "knight",
-    weightToUnlock: 1024000,
   });
 
-  //await cat.setUser(cherry);
   await cherry.addSprite(cat);
   await cherry.addSprite(dog);
-  await cherry.addSprite(redHatBoy);
-  await cherry.addSprite(cuteGirl);
-  await cherry.addSprite(adventureBoy);
-  await cherry.addSprite(zombie);
-  await cherry.addSprite(ninjaGirl);
-  await cherry.addSprite(jackOLantern);
-  await cherry.addSprite(ninjaBoy);
-  await cherry.addSprite(adventureGirl);
-  await cherry.addSprite(dino);
-  await cherry.addSprite(robot);
-  await cherry.addSprite(santa);
-  await cherry.addSprite(knight);
   await ryan.addSprite(cat);
   await ryan.addSprite(dog);
-  await ryan.addSprite(redHatBoy);
-  await admin.addSprite(cat);
-  await admin.addSprite(dog);
-  await admin.addSprite(redHatBoy);
   await nicole.addSprite(cat);
   await nicole.addSprite(dog);
-  await nicole.addSprite(redHatBoy);
   await kyle.addSprite(cat);
   await kyle.addSprite(dog);
-  await kyle.addSprite(redHatBoy);
 
   console.log(`seeded successfully`);
 }
