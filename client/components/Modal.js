@@ -7,7 +7,7 @@ const modalStyles = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   backgroundColor: "#FFF",
-  padding: "50px",
+  padding: "30px",
   zIndex: 1000,
 };
 
@@ -28,8 +28,9 @@ const Modal = ({ open, children, onClose }) => {
     <>
       <div style={overlayStyles}>
         <div style={modalStyles}>
-          <button onClick={onClose}>Close Modal</button>
           {children}
+          <button onClick={onClose}>Got it!</button>
+          {console.log("children", children)}
         </div>
       </div>
     </>,

@@ -7,21 +7,21 @@ const ModalOnLeveling = () => {
   // state capturing user's current level
   // if user levels up
   // modal pops up
+  const [isOpen, setIsOpen] = useState(false);
+  const user = useSelector((state) => state.singleUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setIsOpen(true);
     dispatch(fetchSingleUser());
-  }, []);
+  }, [user.level]);
 
-  const user = useSelector((state) => state.singleUser);
   console.log("user info", user);
-  const [currentLevel, setCurrentLevel] = useState(user.level);
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <button onClick={() => setIsOpen(true)}>Open Modal</button>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-        Fancy Modal
+        Congrats! You leveled up to {user.level}!
       </Modal>
     </div>
   );

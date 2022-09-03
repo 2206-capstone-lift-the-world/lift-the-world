@@ -18,7 +18,6 @@ const CurrentWorkout = () => {
   const workout = useSelector((state) => state.workout);
 
   const [openModal, setOpenModal] = useState(false);
-
   useEffect(() => {
     dispatch(fetchWorkout());
     dispatch(fetchWorkoutlist());
@@ -131,7 +130,9 @@ const CurrentWorkout = () => {
         <Link to="/recap">
           <button
             className="cw-finish-btn"
-            onClick={() => dispatch(finishWorkout())}
+            onClick={() => {
+              dispatch(finishWorkout());
+            }}
           >
             Finish Workout
           </button>
