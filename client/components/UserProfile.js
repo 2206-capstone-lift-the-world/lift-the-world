@@ -267,7 +267,7 @@ useEffect(()=>{
           src={character[frame]}
           className="character"
         />
-        <ProgressBar color='yellow' percentage={percentage(level, currentWeight)}/>
+        <ProgressBar percentage={percentage(level, currentWeight)}/>
         <p className="character-margin">You've lifted a total of:</p>
         <p className="character-margin">
           {totalWeight.toLocaleString("en-US") || 0} lbs
