@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { token } from 'morgan';
 
 const USER_STATS = 'USER_STATS';
 
@@ -13,8 +12,8 @@ const userStats = (stats)=>{
 export const fetchUserStats = ()=>{
     return async (dispatch)=>{
         try {
-        const token = window.localStorage.getItem('token');
-        const {data: stats} = axios.get('/api/users/stats', {headers:{
+        const token = window.localStorage.getItem("token");
+        const {data: stats} = await axios.get('/api/users/stats', {headers:{
             authorization: token
         }});
         dispatch(userStats(stats));
