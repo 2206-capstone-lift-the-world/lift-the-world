@@ -580,9 +580,9 @@ async function seed() {
   });
 
   const pullUp = await Exercise.create({
-    name: "PullUp",
+    name: "Pull-Up",
     category: "back",
-    equipment: ["Pullup Machine", "Pullup Bar"],
+    equipment: ["Pull-up machine", "Pull-up bar"],
     tipsAndTricks: [
       "Keep your shoulder blades squeezed together",
       "Try not to use your legs for momentum",
@@ -593,7 +593,7 @@ async function seed() {
   });
 
   const TbarRow = await Exercise.create({
-    name: "T-bar Row",
+    name: "T-Bar Row",
     category: "back",
     equipment: ["T-Bar", "Weights"],
     tipsAndTricks: [
@@ -608,7 +608,7 @@ async function seed() {
   const renegadeRow = await Exercise.create({
     name: "Renegade Row",
     category: "back",
-    equipment: ["Dumbells", "Floor Mat"],
+    equipment: ["Dumbbells", "Floor mat"],
     tipsAndTricks: [
       "Try to engage your core when you do this exercise",
       "You can have your feet wide, or closer together for a better challenge for your abs",
@@ -618,12 +618,12 @@ async function seed() {
   });
 
   const superMan = await Exercise.create({
-    name: "SuperMan",
+    name: "Superman",
     category: "back",
-    equipment: ["This is one exercise that doesn't require equipment!"],
+    equipment: ["Floor mat"],
     tipsAndTricks: [
       "It is common for people to hold their breath during this workout, make sure you are breathing!",
-      "Don't look up when doing the superman, this can strain your neck. Kepp your neck at a neutral position",
+      "Don't look up when doing the superman, this can strain your neck. Keep your neck at a neutral position",
       "Even though it is tempting to point your toes, doing this will work your legs more than your back. Keep your toes neutral or slightly pointed"
     ],
     embedId: "ULJtPkwF3vU",
@@ -631,19 +631,17 @@ async function seed() {
   });
 
   const singleKettleBellClean = await Exercise.create({
-    name: "Single Kettle Bell Clean",
+    name: "Single Kettlebell Clean",
     category: "back",
-    equipment: ["Kettle Bell"],
+    equipment: ["Kettlebell"],
     tipsAndTricks: [
       "Keep the kettle bell close to your body",
       "At the top of the movement, squeeze your glutes and stand tall",
-      "To avoid injury; ensure to take the arm around the kettle bell, not the kettle bell around the arm "
+      "To avoid injury, ensure to take the arm around the kettle bell, not the kettle bell around the arm "
     ],
     embedId: "ZuTKcP6vtfI",
     image: "/images/kettleBellClean.png",
   });
-
-
 
 
   const pschest1 = await Workout.create({
