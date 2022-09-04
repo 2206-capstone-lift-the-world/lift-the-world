@@ -475,7 +475,7 @@ async function seed() {
     image: "/images/FlatKneeRaise.png",
   });
 
-  const DumbbellShoulderPress = await Exercise.create({
+  const dumbbellShoulderPress = await Exercise.create({
     name: "Dumbbell Shoulder Press",
     category: "chest",
     equipment: ["Dumbbells", "Bench"],
@@ -488,7 +488,7 @@ async function seed() {
     image: "/images/shoulderPress.png",
   });
 
-  const DumbbellBenchPress = await Exercise.create({
+  const dumbbellBenchPress = await Exercise.create({
     name: "Dumbbell Bench Press",
     category: "chest",
     equipment: ["Barbell", "Bench"],
@@ -527,7 +527,7 @@ async function seed() {
     image: "/images/inclineFly.png",
   });
 
-  const landMinePress = await Exercise.create({
+  const landminePress = await Exercise.create({
     name: "Landmine Press",
     category: "chest",
     equipment: ["Barbell"],
@@ -566,7 +566,7 @@ async function seed() {
     image: "/images/pullover.png",
   });
 
-  const ketlleBellSwing = await Exercise.create({
+  const ketllebellSwing = await Exercise.create({
     name: "Kettle Bell Swing",
     category: "back",
     equipment: ["Kettlebell"],
@@ -617,7 +617,7 @@ async function seed() {
     image: "/images/renegadeRow.png",
   });
 
-  const superMan = await Exercise.create({
+  const superman = await Exercise.create({
     name: "Superman",
     category: "back",
     equipment: ["Floor mat"],
@@ -630,7 +630,7 @@ async function seed() {
     image: "/images/superman.png",
   });
 
-  const singleKettleBellClean = await Exercise.create({
+  const singleKettlebellClean = await Exercise.create({
     name: "Single Kettlebell Clean",
     category: "back",
     equipment: ["Kettlebell"],
