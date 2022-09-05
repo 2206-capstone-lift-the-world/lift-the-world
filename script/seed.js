@@ -643,6 +643,97 @@ async function seed() {
     image: "/images/kettleBellClean.png",
   });
 
+  const flutterKicks = await Exercise.create({
+    name: "Flutter Kicks",
+    category: "core",
+    equipment: ["Floor Mat"],
+    tipsAndTricks: [
+      "Laying on your back, put your hands palms down under your glutes for stabalization",
+      "Keep your legs straight and toes pointed",
+      "Don't let your heels touch the ground"
+    ],
+    embedId: "ANVdMDaYRts",
+    image: "/images/flutterKicks.png",
+  });
+
+  const gluteBridge = await Exercise.create({
+    name: "Glute Bridge",
+    category: "glutes",
+    equipment: ["Floor Mat"],
+    tipsAndTricks: [
+      "Keep your arms flat with your palms facing down",
+      "Your hips, knees and shoulders should form a straight line",
+      "While holding in the up position, focus on engaging your glutes and core"
+    ],
+    embedId: "OUgsJ8-Vi0E",
+    image: "/images/gluteBridge.png",
+  });
+
+  const vUps = await Exercise.create({
+    name: "V-Ups",
+    category: "core",
+    equipment: ["Floor Mat"],
+    tipsAndTricks: [
+      "At the start of the repetition; keep your arms and legs straight and lifted off the floor slightly",
+      "To keep the focus on your core, make sure your upper body is initiating the movement",
+      "Keep good form by starting with your back touching the ground and abs engaged"
+    ],
+    embedId: "iP2fjvG0g3w",
+    image: "/images/needImage.png",
+  });
+
+  const fireHydrant = await Exercise.create({
+    name: "Fire Hydrant",
+    category: "glutes",
+    equipment: ["Floor Mat", "Resistance Bands", "Ankle Weights"],
+    tipsAndTricks: [
+      "To get the most out of this workout; keep your core and pelvis stable and only move your hips",
+      "Point your foot to the opposite wall when you lift your leg to help your hip rotate",
+      "Increase the difficulty of this exercise by including ankle weights or a resistance band"
+    ],
+    embedId: "CAZZz7uP-Ok",
+    image: "/images/needImage.png",
+  });
+
+  const sideSquats = await Exercise.create({
+    name: "Side Squats",
+    category: "glutes",
+    equipment: ["Resistance Band", "Dumbells"],
+    tipsAndTricks: [
+      "If using an optional resistance band; the best place for it is just below your knees",
+      "Ensure you push back with your hips while keeping your core engaged",
+      "Hold your arms out in front of you for balance and increased engagement of your core"
+    ],
+    embedId: "Pe115ryKDwQ",
+    image: "/images/needImage.png",
+  });
+
+  const mountainClimbers = await Exercise.create({
+    name: "Mountain Climbers",
+    category: "core",
+    equipment: ["Floor Mat"],
+    tipsAndTricks: [
+      "Keep your body in a straight line, your hands a little more than shoulder width apart, and the balls of your feet on the floor",
+      "Be sure to keep breathing while doing this exercise",
+      "Don't sacrifice your form for speed"
+    ],
+    embedId: "cnyTQDSE884",
+    image: "/images/mountainClimbers.png",
+  });
+
+  const lowPlankTwist = await Exercise.create({
+    name: "Low Plank Twist",
+    category: "core",
+    equipment: ["Floor Mat"],
+    tipsAndTricks: [
+      "If you are a beginner, this is a great exercise for you!",
+      "Keep your back straight and your belly button pressed in to engage your core",
+      "Let your hips on each side slightly touch the ground without resting them or bouncing"
+    ],
+    embedId: "agOUzGXyHxI",
+    image: "/images/mountainClimbers.png",
+  });
+
 
   const pschest1 = await Workout.create({
     name: "chest1",
