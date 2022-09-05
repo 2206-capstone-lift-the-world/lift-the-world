@@ -20,6 +20,7 @@ export const fetchSingleUser = () => {
             authorization: token,
           },
         });
+        console.log('data fsu', data);
         await dispatch(_setSingleUser(data));
       } else {
         console.log('Bad token');
