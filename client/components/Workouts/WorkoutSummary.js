@@ -29,7 +29,11 @@ export const WorkoutSummary = () => {
         {allExercises.exercises.map((exercise) => {
           return (
             <div className="workout-info-container" key={exercise.id}>
+<<<<<<< HEAD
               <p className="workout-exercise-info-name">{exercise.name}</p>
+=======
+              <p className="workout-exercise-info-name"> {exercise.name}</p>
+>>>>>>> 6e2f02abed4d2f88577de1ab869bd8103186e378
               <p className="workout-exercise-info-total">
                 {exercise.workoutlist.sets.reduce((acc, curr) => {
                   return (acc += parseInt(curr.reps * curr.weight));

@@ -10,6 +10,8 @@ const CurrentWorkoutSet = (props) => {
     weight: props.weight,
   });
 
+  const [confirmed, setConfirmed] = useState(false)
+
   const handleChange = (event) => {
     event.preventDefault();
     setSetInfo({
@@ -28,35 +30,46 @@ const CurrentWorkoutSet = (props) => {
         setId: props.setId - 1,
       })
     );
+    confirmed ? setConfirmed(false) : setConfirmed(true)
   };
   return (
-    <div className="cw-info-container">
+    <div className={confirmed ? "cw-info-container-yes" : "cw-info-container-no"}>
       <form>
         <div className="cw-set-info">
-          <input
-            className="cw-sr-input cw-set"
-            type="number"
-            name="set"
-            value={props.setId}
-            disabled
-          />
+          <div className={confirmed ? "cw-set-yes" : "cw-set-no"}>
+            <span>
+              {props.setId}
+            </span>
+          </div>
 
           <input
-            className="cw-sr-input cw-rep-input"
+            className={confirmed ? "cw-sr-input-yes" : "cw-sr-input-no"}
             type="number"
+            onKeyPress={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
             min="0"
             max="50"
             name="reps"
+            pattern="^[1-9]\d*$"
             value={setInfo.reps}
             onChange={handleChange}
           />
 
           <input
-            className="cw-weight-input"
+            className={confirmed ? "cw-weight-input-yes" : "cw-weight-input-no"}
             type="number"
+            onKeyPress={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
             min="0"
             max="1000"
             name="weight"
+            pattern="^[1-9]\d*$"
             value={setInfo.weight}
             onChange={handleChange}
           />
@@ -66,7 +79,7 @@ const CurrentWorkoutSet = (props) => {
           </p>
 
           <button
-            className="cw-check-input"
+            className={confirmed ? "cw-check-yes" : "cw-check-no"}
             type="submit"
             onClick={handleConfirmSet}
           >
