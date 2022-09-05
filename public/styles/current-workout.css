@@ -3,12 +3,18 @@
   flex-direction: column;
 }
 
+form {
+  margin: 0;
+}
+
 .cw-workout-name {
   display: flex;
   flex-direction: row;
   font-size: 1.25rem;
   margin: 0;
   font-weight: 500;
+  width: 13rem;
+  border: none;
 }
 .cw-exercise-name {
   font-size: 1rem;
@@ -47,8 +53,18 @@
   margin-left: .25rem;
 }
 
-.cw-info-container, .cw-info-container-main {
-  background: #EFEFEF;
+.cw-info-container-main {
+  background: #F2F2F2;
+  border-radius: 5px;
+}
+
+.cw-info-container-yes {
+  background: #DDECD2;
+  border-radius: 5px;
+}
+
+.cw-info-container-no {
+  background: #F2F2F2;
   border-radius: 5px;
 }
 
@@ -57,7 +73,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: .5rem .2rem;
+  padding: .3rem .2rem;
 }
 
 .cw-set-info input {
@@ -67,16 +83,22 @@
   margin-left: .3rem;
 }
 
-.cw-set {
+.cw-sr-input-yes {
+  height: 1.25rem;
+  width: 1.25rem;
+  background: #adcce5;
+  border-radius: 5px;
+  border: none;
   text-align: center;
 }
 
-.cw-sr-input, .cw-check-input {
+.cw-sr-input-no {
   height: 1.25rem;
   width: 1.25rem;
-  background: #C9E0E8;
+  background: #d1e5f5;
   border-radius: 5px;
   border: none;
+  text-align: center;
 }
 
 .cw-rep-input {
@@ -84,21 +106,45 @@
   width: 1.5rem;
 }
 
-.cw-weight-input {
+.cw-weight-input-yes {
   height: 1.25rem;
   width: 2.25rem;
-  background: #C9E0E8;
+  background: #adcce5;
+  border-radius: 5px;
+  border: none;
+  margin-left: .5rem;
+}
+
+.cw-weight-input-no {
+  height: 1.25rem;
+  width: 2.25rem;
+  background: #d1e5f5;
   border-radius: 5px;
   border: none;
   margin-left: .5rem;
 }
 
 .cw-reps-heading {
-  margin-left: 1.35rem;
+  margin-left: 1rem;
 }
 
-.cw-check-input {
-  background: #C8E5B8;
+.cw-check-yes{
+  height: 1.25rem;
+  width: 1.25rem;
+  background: #a8ca95;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  margin-right: .2rem;
+}
+
+.cw-check-no{
+  height: 1.25rem;
+  width: 1.25rem;
+  background: #d6d6d6;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
   margin-right: .2rem;
 }
 
@@ -138,7 +184,7 @@
 
 .cw-finish-btn {
   font-size: .8rem;
-  background: #D3DDE5;
+  background: #d1e5f5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
   border-radius: 5px;
   border: none;
@@ -148,6 +194,7 @@
 
 .cw-exercise-name {
   font-size: .8rem;
+  margin: 0 0.25rem;
 }
 
 .exercise-delete-btn {
@@ -162,9 +209,45 @@
 
 .cw-exercise-name-btn {
   margin: .5rem 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cw-finish-workout-btn {
   display: flex;
   justify-content: center;
+}
+
+.cw-heading-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.cw-set-yes {
+  height: 1.3rem;
+  width: 1.3rem;
+  background: #adcce5;
+  border-radius: 5px;
+  font-size: .75rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 .1rem;
+}
+
+.cw-set-no {
+  height: 1.3rem;
+  width: 1.3rem;
+  background: #d1e5f5;
+  border-radius: 5px;
+  font-size: .75rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 .1rem;
 }

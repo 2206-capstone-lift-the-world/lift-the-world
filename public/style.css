@@ -14,7 +14,10 @@
 @import "./styles/loading.css";
 @import './styles/timer.css';
 @import "./styles/preset-workouts.css";
+@import "./styles/previous-workouts.css";
 @import "./styles/progress-bar.css";
+@import "./styles/update.css";
+@import "./styles/single-preset.css";
 @import "./styles/media-query.css";
 
 * {
