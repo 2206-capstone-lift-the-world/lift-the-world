@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import WeightComparison from "./WeightComparison";
-import { WorkoutSummary } from "./WorkoutSummary";
-import { fetchSingleUser } from "../../store/singleUser";
-import ModalOnLeveling from "../ModalOnLeveling";
+import React, { useEffect } from 'react';
+import WeightComparison from './WeightComparison';
+import { useDispatch, useSelector } from 'react-redux';
+import { WorkoutSummary } from './WorkoutSummary';
+import { fetchSingleUser, _setSingleUser } from '../../store/singleUser.js';
+import ModalOnLeveling from '../ModalOnLeveling';
 
 const Recap = () => {
   const dispatch = useDispatch();
@@ -11,18 +11,15 @@ const Recap = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchSingleUser());
     <ModalOnLeveling />;
-    console.log("user level in use effect", user.level);
+    console.log('user level in use effect', user.level);
   }, [user.level]);
 
-  // useEffect(() => {
-  //   dispatch(fetchUserLevel());
-  //   <ModalOnLeveling />;
-  //   console.log("user level after 2nd use effect", user.level);
-  // }, [user.level]);
-
-  console.log("user level now", user.level);
-
+  console.log('user level now', user.level);
   return (
     <div className="recap-container">
       <div className="recap-congrats">
@@ -30,7 +27,7 @@ const Recap = () => {
       </div>
       <WorkoutSummary />
       <WeightComparison />
-      {console.log("user level afterwork", user)}
+      {console.log('user level afterwork', user)}
     </div>
   );
 };

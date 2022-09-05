@@ -1,8 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 // ACTION TYPE
-const SET_SINGLE_USER = "SET_SINGLE_USER";
-const SET_USER_LEVEL = "SET_USER_LEVEL";
+const SET_SINGLE_USER = 'SET_SINGLE_USER';
 
 // ACTION CREATOR
 export const _setSingleUser = (user) => ({
@@ -10,45 +9,20 @@ export const _setSingleUser = (user) => ({
   user,
 });
 
-export const _setUserLevel = (user) => ({
-  type: SET_USER_LEVEL,
-  user,
-});
-
 // THUNK
 export const fetchSingleUser = () => {
   return async (dispatch) => {
     try {
-      const token = window.localStorage.getItem("token");
+      const token = window.localStorage.getItem('token');
       if (token) {
-        const { data } = await axios.get("/api/users/profile", {
+        const { data } = await axios.get('/api/users/profile', {
           headers: {
             authorization: token,
           },
         });
         await dispatch(_setSingleUser(data));
       } else {
-        console.log("Bad token");
-      }
-    } catch (err) {
-      console.error("Can't find user!");
-    }
-  };
-};
-
-export const fetchUserLevel = () => {
-  return async (dispatch) => {
-    try {
-      const token = window.localStorage.getItem("token");
-      if (token) {
-        const { data } = await axios.get("/api/users/profile", {
-          headers: {
-            authorization: token,
-          },
-        });
-        await dispatch(_setSingleUser(data));
-      } else {
-        console.log("Bad token");
+        console.log('Bad token');
       }
     } catch (err) {
       console.error("Can't find user!");
@@ -62,8 +36,6 @@ const initialState = [];
 export default function singleUserReducer(state = initialState, action) {
   switch (action.type) {
     case SET_SINGLE_USER:
-      return action.user;
-    case SET_USER_LEVEL:
       return action.user;
     default:
       return state;
