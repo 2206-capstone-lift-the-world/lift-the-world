@@ -10,7 +10,7 @@ async function seed() {
 
   // Creating Users
   const kyle = await User.create({
-    username: "kyle",
+    username: "Kyle",
     email: "kparki@email.com",
     password: "123",
     totalWeight: 0,
@@ -19,7 +19,7 @@ async function seed() {
   });
 
   const nicole = await User.create({
-    username: "nicky",
+    username: "Nicky",
     email: "nicole@hong.com",
     password: "123",
     totalWeight: 0,
@@ -28,7 +28,7 @@ async function seed() {
   });
 
   const cherry = await User.create({
-    username: "cherry",
+    username: "Cherry",
     email: "cherry@xu.com",
     password: "123",
     totalWeight: 0,
@@ -37,12 +37,66 @@ async function seed() {
   });
 
   const ryan = await User.create({
-    username: "ryan",
+    username: "Ryan",
     email: "ryan@scoville.com",
     password: "123",
     totalWeight: 0,
     level: 1,
     selectedSprite: "dog",
+  });
+
+  const Sul = await User.create({
+    username: "Sul",
+    email: "sul@email.com",
+    password: "123",
+    totalWeight: 1000,
+    level: 2,
+    selectedSprite: "dog",
+  });
+
+  const bob = await User.create({
+    username: "Bob",
+    email: "bob@email.com",
+    password: "123",
+    totalWeight: 5500,
+    level: 4,
+    selectedSprite: "dog",
+  });
+
+  const sandra = await User.create({
+    username: "Sandra",
+    email: "sandra@email.com",
+    password: "123",
+    totalWeight: 9500,
+    level: 5,
+    selectedSprite: "redHatBoy",
+  });
+
+  const charlie = await User.create({
+    username: "Charlie",
+    email: "charlie@email.com",
+    password: "123",
+    totalWeight: 17000,
+    level: 7,
+    selectedSprite: "dog",
+  });
+
+  const erica = await User.create({
+    username: "Erica",
+    email: "erica@email.com",
+    password: "123",
+    totalWeight: 115000,
+    level: 16,
+    selectedSprite: "ninjaGirl",
+  });
+
+  const lisa = await User.create({
+    username: "Lisa",
+    email: "lisa@email.com",
+    password: "123",
+    totalWeight: 725000,
+    level: 27,
+    selectedSprite: "ninjaBoy",
   });
 
   // creating exercises for presets
