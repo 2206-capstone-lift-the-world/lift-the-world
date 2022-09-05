@@ -734,6 +734,32 @@ async function seed() {
     image: "/images/mountainClimbers.png",
   });
 
+  const barbellHipThrust = await Exercise.create({
+    name: "Barbell Hip Thrust",
+    category: "glutes",
+    equipment: ["Bench", "Barbell", "Weights"],
+    tipsAndTricks: [
+      "Add a more advanced variation by doing it with a single leg",
+      "Rotate your shoulders outwards to engage your lats",
+      "Keep your chin tucked during the entire exercise"
+    ],
+    embedId: "Zp26q4BY5HE",
+    image: "/images/barbellHipThrust.png",
+  });
+
+  const swissBallWallSquat = await Exercise.create({
+    name: "Swiss Ball Wall Squat",
+    category: "glutes",
+    equipment: ["Stability Ball"],
+    tipsAndTricks: [
+      "Your feet should be 6-12 inches from your body, so you are slightly pushing into the ball",
+      "Drive through your heels",
+      "Make sure you maintain contact with the ball at the center of your back and tailbone during this exercise"
+    ],
+    embedId: "dLC-1B7lKI0",
+    image: "/images/swissBallWallSquat.png",
+  });
+
 
   const pschest1 = await Workout.create({
     name: "chest1",
