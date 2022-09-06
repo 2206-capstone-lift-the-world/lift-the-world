@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUnlockedSprites } from "../store/sprites";
-import { updateSelectedSprite } from "../store/updateSelectedSprite";
+import { fetchUnlockedSprites } from "../../store/sprites";
+import { updateSelectedSprite } from "../../store/updateSelectedSprite";
 
 const ChooseSprites = (props) => {
   const isMounted = useRef(false);
@@ -34,11 +34,13 @@ const ChooseSprites = (props) => {
 
   return (
     <div>
-      <h1>Choose from your Unlocked Sprites!</h1>
+      <h1 className="choose-sprite-heading">
+        Choose from your unlocked sprites!
+      </h1>
       <div className="sprite-container">
         {sprites.map((sprite) => {
           return (
-            <div key={sprites.indexOf(sprite)}>
+            <div className="sprite-individual" key={sprites.indexOf(sprite)}>
               <input
                 className="sprite-small"
                 onClick={chooseSprite}

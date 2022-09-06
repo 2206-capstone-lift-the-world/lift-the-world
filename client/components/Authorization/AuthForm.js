@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { authenticate } from "../../store";
 
 const AuthForm = (props) => {
-  const { name, displayName, handleSubmit, error } = props;
+  const { name, handleSubmit, error } = props;
+
   return (
     <div className="form">
       <form onSubmit={handleSubmit} name={name}>
@@ -20,6 +21,7 @@ const AuthForm = (props) => {
                   type="text"
                   name="username"
                   placeholder="Username"
+                  required
                 />
               </div>
             </div>
@@ -29,9 +31,10 @@ const AuthForm = (props) => {
               <div className="form-input-container">
                 <input
                   className="form-input"
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="Email"
+                  required
                 />
               </div>
             </div>
@@ -44,18 +47,18 @@ const AuthForm = (props) => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
               </div>
+              {error && <div className="error-message"> {error} </div>}
             </div>
             <div className="signup-btn-container">
               <button className="button signup-btn" type="submit">
                 Sign Up
               </button>
-              <p className="form-small-text">Have an account?</p>
-              <Link to="/login">
-                <button className="button signup-btn" type="submit">
-                  Sign In
-                </button>
+              <p className="form-small-text">Have an account? </p>
+              <Link to="/login" className="sign-up">
+                Sign in
               </Link>
               <Link to="/disclaimer" className="form-disclaimer">
                 Disclaimer
@@ -87,19 +90,19 @@ const AuthForm = (props) => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
               </div>
             </div>
 
             <div className="login-btn-container">
+              {error && <div className="error-message"> {error} </div>}
               <button className="button login-btn" type="submit">
                 Sign In
               </button>
-              <p className="form-small-text">Don't have an account?</p>
-              <Link to="/signup">
-                <button className="button signup-btn" type="submit">
-                  Create new account
-                </button>
+              <p className="form-small-text">Don't have an account? </p>
+              <Link to="/signup" className="sign-up">
+                Sign up now
               </Link>
               <Link to="/disclaimer" className="form-disclaimer">
                 Disclaimer
