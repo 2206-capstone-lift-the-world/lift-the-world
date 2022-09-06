@@ -681,7 +681,8 @@ async function seed() {
       "Even though it is tempting to point your toes, doing this will work your legs more than your back. Keep your toes neutral or slightly pointed",
     ],
     embedId: "ULJtPkwF3vU",
-    image: "/images/superman.png",
+    image:
+      "https://thumbs.dreamstime.com/b/fitness-exercising-exercise-like-superman-female-target-muscles-marked-red-initial-final-steps-45723100.jpg",
   });
 
   const singleKettlebellClean = await Exercise.create({
@@ -733,7 +734,7 @@ async function seed() {
       "Keep good form by starting with your back touching the ground and abs engaged",
     ],
     embedId: "iP2fjvG0g3w",
-    image: "/images/needImage.png",
+    image: "/images/V-up.png",
   });
 
   const fireHydrant = await Exercise.create({
@@ -746,7 +747,7 @@ async function seed() {
       "Increase the difficulty of this exercise by including ankle weights or a resistance band",
     ],
     embedId: "CAZZz7uP-Ok",
-    image: "/images/needImage.png",
+    image: "https://thumbs.dreamstime.com/b/basic-rgb-223983316.jpg",
   });
 
   const sideSquats = await Exercise.create({
@@ -759,7 +760,8 @@ async function seed() {
       "Hold your arms out in front of you for balance and increased engagement of your core",
     ],
     embedId: "Pe115ryKDwQ",
-    image: "/images/needImage.png",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/005/178/610/non_2x/woman-doing-side-to-side-squats-exercise-free-vector.jpg",
   });
 
   const mountainClimbers = await Exercise.create({
@@ -791,7 +793,7 @@ async function seed() {
   const barbellHipThrust = await Exercise.create({
     name: "Barbell Hip Thrust",
     category: "glutes",
-    equipment: ["Bench", "Barbell", "Weights"],
+    equipment: ["Bench", "Barbell"],
     tipsAndTricks: [
       "Add a more advanced variation by doing it with a single leg",
       "Rotate your shoulders outwards to engage your lats",
@@ -811,7 +813,7 @@ async function seed() {
       "Make sure you maintain contact with the ball at the center of your back and tailbone during this exercise",
     ],
     embedId: "dLC-1B7lKI0",
-    image: "/images/swissBallWallSquat.png",
+    image: "https://fitwirr.com/wp-content/uploads/2022/01/Ball-Wall-Squat.jpg",
   });
 
   const pschest1 = await Workout.create({
