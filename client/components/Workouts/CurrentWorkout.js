@@ -81,11 +81,13 @@ const CurrentWorkout = () => {
               onChange={handleChange}
             />
           </form>
-          <img
-            src="/images/pencil.png"
-            className="update-pencil"
+          <button
+            className="update-workout-name"
+            type="submit"
             onClick={handleSubmit}
-          />
+          >
+            ✓
+          </button>
         </div>
         {allExercises.exercises.map((exercise) => {
           return (
