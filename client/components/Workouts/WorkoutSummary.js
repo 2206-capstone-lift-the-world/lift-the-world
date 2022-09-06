@@ -8,18 +8,12 @@ export const WorkoutSummary = () => {
 
   useEffect(() => {
     dispatch(fetchWorkoutlist());
-  }, []);
+  }, [dispatch]);
 
-  if (
-    !workoutlist.allExercises.exercises ||
-    workoutlist.allExercises.exercises.length === 0
-  ) {
-    return <div>Loading...</div>;
-  }
+  const allExercises = workoutlist.allExercises || [];
+  const exercises = allExercises.exercises || [];
 
-  const { allExercises } = workoutlist || [];
-
-  return (
+  return workoutlist.allExercises.exercises ? (
     <div className="workout-summary-container">
       <div className="workout-summary-headings">
         <p className="workout-summary-heading">Name</p>
@@ -41,5 +35,7 @@ export const WorkoutSummary = () => {
         })}
       </div>
     </div>
+  ) : (
+    ""
   );
 };
