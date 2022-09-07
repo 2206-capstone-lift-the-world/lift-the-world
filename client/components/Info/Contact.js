@@ -59,7 +59,7 @@ export default function Contact() {
                 <a href={contact.personal}>
                   <FontAwesomeIcon icon={faIdCardAlt} className="id-alt"/>
                 </a>
-                ): (
+                ) : (
                   ""
                 )}
               </div>
